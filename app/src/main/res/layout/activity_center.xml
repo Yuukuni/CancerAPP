@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.huangyuwei.myapplication.center">
+
+    <ImageButton
+        android:id="@+id/Btn_cure"
+        android:scaleType="fitCenter"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        app:srcCompat="@drawable/btn_cure"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.029"
+        android:background="@null" />
+
+    <ImageButton
+        android:id="@+id/Btn_move"
+        android:scaleType="fitCenter"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        app:srcCompat="@drawable/btn_move"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:background="@null" />
+
+    <ImageButton
+        android:id="@+id/Btn_eat"
+        android:scaleType="fitCenter"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/btn_eat"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.971"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@null" />
+
+    <ImageButton
+        android:id="@+id/Btn_talk"
+        android:scaleType="fitCenter"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/btn_talk"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.86"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.029"
+        android:background="@null" />
+
+    <ImageButton
+        android:id="@+id/Btn_ask"
+        android:scaleType="fitCenter"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/btn_ask"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.029"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintVertical_bias="0.48"
+        android:background="@null" />
+
+    <ImageButton
+        android:id="@+id/Btn_mem"
+        android:scaleType="fitCenter"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.971"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48"
+        app:srcCompat="@drawable/btn_mem"
+        android:background="@null" />
+
+    <ImageButton
+        android:id="@+id/Btn_link"
+        android:scaleType="fitCenter"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/btn_link"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.48"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@null" />
+
+    <ImageButton
+        android:id="@+id/Btn_laugh"
+        android:scaleType="fitCenter"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/btn_laugh"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.86"
+        android:background="@null" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="笑吧"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/Btn_laugh"
+        app:layout_constraintLeft_toLeftOf="@id/Btn_laugh"
+        app:layout_constraintRight_toRightOf="@id/Btn_laugh"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="吃吧"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/Btn_eat"
+        app:layout_constraintLeft_toLeftOf="@id/Btn_eat"
+        app:layout_constraintRight_toRightOf="@id/Btn_eat"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="治吧"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/Btn_cure"
+        app:layout_constraintLeft_toLeftOf="@id/Btn_cure"
+        app:layout_constraintRight_toRightOf="@id/Btn_cure"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="動吧"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/Btn_move"
+        app:layout_constraintLeft_toLeftOf="@id/Btn_move"
+        app:layout_constraintRight_toRightOf="@id/Btn_move"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="問吧"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/Btn_ask"
+        app:layout_constraintLeft_toLeftOf="@id/Btn_ask"
+        app:layout_constraintRight_toRightOf="@id/Btn_ask"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="記吧"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/Btn_mem"
+        app:layout_constraintLeft_toLeftOf="@id/Btn_mem"
+        app:layout_constraintRight_toRightOf="@id/Btn_mem"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="說吧"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/Btn_talk"
+        app:layout_constraintLeft_toLeftOf="@id/Btn_talk"
+        app:layout_constraintRight_toRightOf="@id/Btn_talk"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="連吧"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/Btn_link"
+        app:layout_constraintLeft_toLeftOf="@id/Btn_link"
+        app:layout_constraintRight_toRightOf="@id/Btn_link"
+        />
+
+</android.support.constraint.ConstraintLayout>
