@@ -1,15 +1,33 @@
 package com.example.huangyuwei.myapplication.mem;
 
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
+import com.example.huangyuwei.myapplication.MainActivity;
 import com.example.huangyuwei.myapplication.R;
+import com.example.huangyuwei.myapplication.UserData;
+import com.example.huangyuwei.myapplication.ask.ask;
+import com.example.huangyuwei.myapplication.center;
+import com.example.huangyuwei.myapplication.cure.cure_main;
+import com.example.huangyuwei.myapplication.eat.eat_main;
+import com.example.huangyuwei.myapplication.laugh.laugh;
+import com.example.huangyuwei.myapplication.link.link;
+import com.example.huangyuwei.myapplication.move.move_main;
+import com.example.huangyuwei.myapplication.talk.talk;
+import com.example.huangyuwei.myapplication.user_profile;
 
-public class self_main extends AppCompatActivity {
+public class self_main extends ActivityWith8bigMenu {
     private static self_main mInstance = null;
+
     Button btn_mood;
     Button btn_food;
     Button btn_body;
@@ -25,6 +43,7 @@ public class self_main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self_main);
         mInstance=this;
+
         btn_mine = (Button) findViewById(R.id.mem_me_button);
         btn_mine.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,8 +132,8 @@ public class self_main extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
+
     public static self_main getInstance(){
         return mInstance;
     }

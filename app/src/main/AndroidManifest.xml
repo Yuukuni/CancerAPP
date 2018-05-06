@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
+        android:name=".GlobalVariable"
         android:allowBackup="true"
         android:icon="@mipmap/icon"
         android:label="@string/app_name"
@@ -68,7 +69,9 @@
             android:label="@string/title_activity_camera"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".modify_password" />
-        <activity android:name=".cure.cure_main" />
+        <activity
+            android:name=".cure.cure_main"
+            android:parentActivityName=".center" />
         <activity android:name=".cure.cure_show" />
         <activity android:name=".eat.eat_main" />
         <activity android:name=".eat.eat_show" />
@@ -80,7 +83,6 @@
         <activity android:name=".mem.mood_qa" />
         <activity android:name=".mem.mem_mood_main" />
         <activity android:name=".mem.mem_mine" />
-        <activity android:name=".mem.mem_cure" />
         <activity android:name=".mem.mem_cure_main" />
         <activity android:name=".laugh.laugh_fashion_bra" />
         <activity android:name=".laugh.laugh_fashion_hair" />
@@ -108,7 +110,8 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".mem.mem_back" />
-        <activity android:name=".mem.mem_setting"></activity>
+        <activity android:name=".mem.mem_setting" />
+        <activity android:name=".ActivityWith8bigMenu"></activity>
     </application>
 
 </manifest>

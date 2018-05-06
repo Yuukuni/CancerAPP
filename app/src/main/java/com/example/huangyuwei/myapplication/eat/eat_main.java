@@ -7,12 +7,27 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
+import com.example.huangyuwei.myapplication.MainActivity;
 import com.example.huangyuwei.myapplication.R;
+import com.example.huangyuwei.myapplication.UserData;
+import com.example.huangyuwei.myapplication.ask.ask;
+import com.example.huangyuwei.myapplication.center;
+import com.example.huangyuwei.myapplication.cure.cure_main;
+import com.example.huangyuwei.myapplication.laugh.laugh;
+import com.example.huangyuwei.myapplication.link.link;
+import com.example.huangyuwei.myapplication.mem.self_main;
+import com.example.huangyuwei.myapplication.move.move_main;
+import com.example.huangyuwei.myapplication.talk.talk;
+import com.example.huangyuwei.myapplication.user_profile;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,7 +40,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class eat_main extends AppCompatActivity {
+public class eat_main extends ActivityWith8bigMenu {
 
     private static final String TAG = "eat_main";
     private Context context;
@@ -41,7 +56,6 @@ public class eat_main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eat_main);
-
         context = this;
         listView = (ListView)findViewById(R.id.listview_eat);
         new getEatDataTask().execute();

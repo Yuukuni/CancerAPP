@@ -10,6 +10,8 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -18,6 +20,15 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.huangyuwei.myapplication.ask.ask;
+import com.example.huangyuwei.myapplication.cure.cure_main;
+import com.example.huangyuwei.myapplication.eat.eat_main;
+import com.example.huangyuwei.myapplication.laugh.laugh;
+import com.example.huangyuwei.myapplication.link.link;
+import com.example.huangyuwei.myapplication.mem.self_main;
+import com.example.huangyuwei.myapplication.move.move_main;
+import com.example.huangyuwei.myapplication.talk.talk;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -66,6 +77,7 @@ public class user_profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         context=this;
         mInstance=this;
         userProfile = new UserProfile();
@@ -100,7 +112,7 @@ public class user_profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 UserData.getSharedPreferences(context).edit().clear().apply();
-                Intent intent = new Intent(user_profile.this,MainActivity.class);
+                Intent intent = new Intent(user_profile.this, MainActivity.class);
                 startActivity(intent);
                 center.getInstance().finish();
                 user_profile.this.finish();
@@ -459,5 +471,22 @@ public class user_profile extends AppCompatActivity {
             String all=email+" "+name+" "+birth+" "+phone+" "+c_level+" "+c_date+" "+cure;
             return all;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent();
+        int id = item.getItemId();
+        switch(id){
+            case android.R.id.home:
+                onBackPressed();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -7,13 +7,28 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
 import com.example.huangyuwei.myapplication.CameraActivity;
+import com.example.huangyuwei.myapplication.MainActivity;
 import com.example.huangyuwei.myapplication.R;
+import com.example.huangyuwei.myapplication.UserData;
+import com.example.huangyuwei.myapplication.ask.ask;
+import com.example.huangyuwei.myapplication.center;
+import com.example.huangyuwei.myapplication.cure.cure_main;
+import com.example.huangyuwei.myapplication.eat.eat_main;
+import com.example.huangyuwei.myapplication.laugh.laugh;
+import com.example.huangyuwei.myapplication.mem.self_main;
+import com.example.huangyuwei.myapplication.move.move_main;
+import com.example.huangyuwei.myapplication.talk.talk;
+import com.example.huangyuwei.myapplication.user_profile;
 
-public class link extends AppCompatActivity {
+public class link extends ActivityWith8bigMenu {
     Button center,economic,foundation,resource,sister;
 
     @Override

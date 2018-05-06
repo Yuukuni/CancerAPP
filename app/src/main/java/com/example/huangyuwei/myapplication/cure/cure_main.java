@@ -12,17 +12,28 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
+import com.example.huangyuwei.myapplication.MainActivity;
 import com.example.huangyuwei.myapplication.R;
 import com.example.huangyuwei.myapplication.UserData;
+import com.example.huangyuwei.myapplication.ask.ask;
 import com.example.huangyuwei.myapplication.center;
+import com.example.huangyuwei.myapplication.eat.eat_main;
+import com.example.huangyuwei.myapplication.laugh.laugh;
+import com.example.huangyuwei.myapplication.link.link;
 import com.example.huangyuwei.myapplication.link.link_economic;
 import com.example.huangyuwei.myapplication.link.link_foundation;
+import com.example.huangyuwei.myapplication.mem.self_main;
+import com.example.huangyuwei.myapplication.move.move_main;
+import com.example.huangyuwei.myapplication.talk.talk;
 import com.example.huangyuwei.myapplication.user_profile;
 
 import org.json.JSONArray;
@@ -40,7 +51,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class cure_main extends AppCompatActivity {
+public class cure_main extends ActivityWith8bigMenu {
     private static final String TAG = "cure_main";
     private Context context;
     public static final int CONNECTION_TIMEOUT=10000;
@@ -186,5 +197,4 @@ public class cure_main extends AppCompatActivity {
         }
 
     }
-
 }

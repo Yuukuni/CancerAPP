@@ -8,6 +8,8 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -18,6 +20,15 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.huangyuwei.myapplication.ask.ask;
+import com.example.huangyuwei.myapplication.cure.cure_main;
+import com.example.huangyuwei.myapplication.eat.eat_main;
+import com.example.huangyuwei.myapplication.laugh.laugh;
+import com.example.huangyuwei.myapplication.link.link;
+import com.example.huangyuwei.myapplication.mem.self_main;
+import com.example.huangyuwei.myapplication.move.move_main;
+import com.example.huangyuwei.myapplication.talk.talk;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -62,6 +73,7 @@ public class user_modify extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_modify);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
         context=this;
         edt_name = (EditText) findViewById(R.id.edit_name);
         edt_birth = (EditText) findViewById(R.id.edit_birth);
@@ -271,5 +283,22 @@ public class user_modify extends AppCompatActivity {
 
         }
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent();
+        int id = item.getItemId();
+        switch(id){
+            case android.R.id.home:
+                onBackPressed();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

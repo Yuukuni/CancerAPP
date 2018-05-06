@@ -2,6 +2,7 @@ package com.example.huangyuwei.myapplication;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,7 +23,8 @@ import com.example.huangyuwei.myapplication.talk.talk;
 
 public class center extends AppCompatActivity {
     private static center mInstance = null;
-    private static Context context=null;
+    private static Context context= null;
+    private GlobalVariable globalVariable;
 
     ImageButton Btn_ask;
     ImageButton Btn_link;
@@ -32,12 +34,72 @@ public class center extends AppCompatActivity {
     ImageButton Btn_eat;
     ImageButton Btn_laugh;
     ImageButton Btn_cure;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_center);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         context=this;
         mInstance=this;
+        globalVariable = (GlobalVariable) getApplicationContext();
+
+        Intent intent = new Intent();
+        switch (globalVariable.theNextAction){
+            case TO_CURE:
+                globalVariable.theNextAction = GlobalVariable.NextAction.NO_ACTION;
+                intent.setClass(this, cure_main.class);
+                startActivity(intent);
+                break;
+            case TO_MOVE:
+                globalVariable.theNextAction = GlobalVariable.NextAction.NO_ACTION;
+                intent.setClass(this, move_main.class);
+                startActivity(intent);
+                break;
+            case TO_EAT:
+                globalVariable.theNextAction = GlobalVariable.NextAction.NO_ACTION;
+                intent.setClass(this, eat_main.class);
+                startActivity(intent);
+                break;
+            case TO_ASK:
+                globalVariable.theNextAction = GlobalVariable.NextAction.NO_ACTION;
+                intent.setClass(this, ask.class);
+                startActivity(intent);
+                break;
+            case TO_LINK:
+                globalVariable.theNextAction = GlobalVariable.NextAction.NO_ACTION;
+                intent.setClass(this, link.class);
+                startActivity(intent);
+                break;
+            case TO_MEM:
+                globalVariable.theNextAction = GlobalVariable.NextAction.NO_ACTION;
+                intent.setClass(this, self_main.class);
+                startActivity(intent);
+                break;
+            case TO_TALK:
+                globalVariable.theNextAction = GlobalVariable.NextAction.NO_ACTION;
+                intent.setClass(this, talk.class);
+                startActivity(intent);
+                break;
+            case TO_LAUGH:
+                globalVariable.theNextAction = GlobalVariable.NextAction.NO_ACTION;
+                intent.setClass(this, laugh.class);
+                startActivity(intent);
+                break;
+            case SIGN_OUT:
+                globalVariable.theNextAction = GlobalVariable.NextAction.NO_ACTION;
+                UserData.getSharedPreferences(this).edit().clear().apply();
+                intent.setClass(this, MainActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+            case NO_ACTION:
+                break;
+            case EXIT:
+                globalVariable.theNextAction = GlobalVariable.NextAction.NO_ACTION;
+                finish();
+        }
 
         Btn_laugh= (ImageButton) findViewById(R.id.Btn_laugh);
         Btn_laugh.setOnClickListener(new View.OnClickListener() {
@@ -122,30 +184,29 @@ public class center extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.setting, menu);   //https://cutler.github.io/android-B03/
+        getMenuInflater().inflate(R.menu.center_menu, menu);   //https://cutler.github.io/android-B03/
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent();
         int id = item.getItemId();
         switch(id){
-            case R.id.item_setting:
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            case R.id.setting:
                 Toast.makeText(this, "載入個人頁面", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent();
-                intent.setClass(center.this  ,user_profile.class);
+                intent.setClass(center.this, user_profile.class);
                 startActivity(intent);
                 break;
-            case R.id.item_about:
-                String about="黃昱崴的APP";
-                Toast.makeText(this, "載入關於", Toast.LENGTH_SHORT).show();
-                AlertDialog dialog = new AlertDialog.Builder(center.this)
-                        .setPositiveButton(android.R.string.ok, null)
-                        .setTitle("關於")
-                        .setMessage(about)
-                        .create();
-                dialog.show();
-                break;
+            case R.id.signOut:
+                UserData.getSharedPreferences(this).edit().clear().apply();
+                intent.setClass(center.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
         }
         return super.onOptionsItemSelected(item);
     }

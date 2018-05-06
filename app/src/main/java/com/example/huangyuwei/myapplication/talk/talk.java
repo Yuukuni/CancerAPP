@@ -1,15 +1,31 @@
 package com.example.huangyuwei.myapplication.talk;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
+import com.example.huangyuwei.myapplication.MainActivity;
 import com.example.huangyuwei.myapplication.R;
+import com.example.huangyuwei.myapplication.UserData;
+import com.example.huangyuwei.myapplication.ask.ask;
+import com.example.huangyuwei.myapplication.center;
+import com.example.huangyuwei.myapplication.cure.cure_main;
+import com.example.huangyuwei.myapplication.eat.eat_main;
+import com.example.huangyuwei.myapplication.laugh.laugh;
+import com.example.huangyuwei.myapplication.link.link;
+import com.example.huangyuwei.myapplication.mem.self_main;
+import com.example.huangyuwei.myapplication.move.move_main;
+import com.example.huangyuwei.myapplication.user_profile;
 
-public class talk extends AppCompatActivity {
+public class talk extends ActivityWith8bigMenu {
 
     SectionsPagerAdapter mSectionsPagerAdapter;
     ViewPager mViewPager;
