@@ -11,6 +11,8 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -54,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         context = this;
         // Get Reference to variables
         linear_tab = (LinearLayout)findViewById(R.id.linear_tab_main);
@@ -241,6 +244,27 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         super.onDestroy();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_activity_menu, menu);   //https://cutler.github.io/android-B03/
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent();
+        int id = item.getItemId();
+        switch(id){
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            case R.id.exit:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
 

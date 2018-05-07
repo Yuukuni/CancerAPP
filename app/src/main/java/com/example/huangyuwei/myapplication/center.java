@@ -209,6 +209,10 @@ public class center extends AppCompatActivity {
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
+                break;
+            case R.id.exit:
+                finish();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

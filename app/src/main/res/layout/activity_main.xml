@@ -8,7 +8,7 @@
 
     <ImageView
         android:id="@+id/imageViewLoginBackground"
-        app:srcCompat="@drawable/login_pure_background"
+        app:srcCompat="@drawable/login_background_new"
         android:scaleType="fitXY"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toTopOf="@id/guidelineLoginTop"
         app:layout_constraintBottom_toBottomOf="@id/guidelineLoginBottom"
         app:layout_constraintLeft_toLeftOf="@id/guidelineLeftVertical"
-        app:layout_constraintRight_toRightOf="@id/guidelineRightVertical"
+        app:layout_constraintRight_toRightOf="@id/guidelineMidRight"
         android:background="@drawable/loginbtn" />
 
     <Button
@@ -64,148 +64,116 @@
         android:layout_height="0dp"
         android:text="註冊"
         android:textColor="@android:color/white"
-        app:layout_constraintTop_toTopOf="@id/guidelineSignUpTop"
-        app:layout_constraintBottom_toBottomOf="@id/guidelineSignUpBottom"
-        app:layout_constraintLeft_toLeftOf="@id/guidelineLeftVertical"
+        app:layout_constraintTop_toTopOf="@id/guidelineLoginTop"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineLoginBottom"
+        app:layout_constraintLeft_toLeftOf="@id/guidelineMidLeft"
         app:layout_constraintRight_toRightOf="@id/guidelineRightVertical"
-        android:background="@drawable/signupbtn" />
+        android:background="@drawable/loginbtn" />
 
     <CheckBox
         android:id="@+id/autoLogin"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="保持登入狀態"
+        android:text="保持登入"
+        android:textColor="@android:color/tertiary_text_dark"
         app:layout_constraintTop_toTopOf="@id/guidelineAutoLoginTop"
         app:layout_constraintBottom_toBottomOf="@id/guidelineAutoLoginBottom"
         app:layout_constraintLeft_toLeftOf="@id/guidelineLeftVertical"
-        app:layout_constraintRight_toRightOf="@id/guidelineRightVertical" />
+        app:layout_constraintRight_toRightOf="@id/guidelineMidRight" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="忘記帳號密碼"
+        android:textColor="@android:color/tertiary_text_dark"
+        app:layout_constraintTop_toTopOf="@id/guidelineAutoLoginTop"
+        app:layout_constraintBottom_toBottomOf="@+id/guidelineAutoLoginBottom"
+        app:layout_constraintRight_toRightOf="@+id/guidelineRightVertical"
+        android:layout_marginRight="7dp"/>
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelineLeftVertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.15" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelineRightVertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9" />
+        app:layout_constraintGuide_percent="0.85" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guidelineLoginPicturesLeft"
+        android:id="@+id/guidelineMidRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.13" />
+        app:layout_constraintGuide_percent="0.49" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guidelineLoginPicturesRight"
+        android:id="@+id/guidelineMidLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.18" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelineAccountPictureTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.535" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelineAccountPictureBottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.585" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelinePasswordPictureTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.63" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelinePasswordPictureBottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.68" />
+        app:layout_constraintGuide_percent="0.51" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelineEmailTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.52" />
+        app:layout_constraintGuide_percent="0.56" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelineEmailBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6" />
+        app:layout_constraintGuide_percent="0.64" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinePasswordTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.615" />
+        app:layout_constraintGuide_percent="0.67" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinePasswordBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.695" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelineAutoLoginTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelineAutoLoginBottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.76" />
+        app:layout_constraintGuide_percent="0.75" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelineLoginTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.765" />
+        app:layout_constraintGuide_percent="0.78" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelineLoginBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.845" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guidelineSignUpTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.86" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guidelineSignUpBottom"
+        android:id="@+id/guidelineAutoLoginTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.87" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineAutoLoginBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.94" />
-
 
     <LinearLayout
         android:id="@+id/linear_tab_main"
