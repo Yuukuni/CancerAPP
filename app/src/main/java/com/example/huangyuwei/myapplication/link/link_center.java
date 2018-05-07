@@ -20,6 +20,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
 import com.example.huangyuwei.myapplication.R;
 
 import java.io.BufferedReader;
@@ -40,7 +41,7 @@ import java.util.ArrayList;
 
 
 
-public class link_center extends AppCompatActivity {
+public class link_center extends ActivityWith8bigMenu {
     class Center{
         String name;
         String phone;

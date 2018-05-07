@@ -8,10 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
 import com.example.huangyuwei.myapplication.R;
 
 
-public class link_sister extends AppCompatActivity {
+public class link_sister extends ActivityWith8bigMenu {
 
 
 

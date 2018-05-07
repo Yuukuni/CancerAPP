@@ -9,10 +9,11 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
 import com.example.huangyuwei.myapplication.R;
 import com.example.huangyuwei.myapplication.UserData;
 
-public class mem_mine extends AppCompatActivity {
+public class mem_mine extends ActivityWith8bigMenu {
     private Context context;
     private static mem_mine instance;
     private Button btn_edit;

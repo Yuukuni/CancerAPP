@@ -8,9 +8,10 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
 import com.example.huangyuwei.myapplication.R;
 
-public class laugh_fashion_bra extends AppCompatActivity {
+public class laugh_fashion_bra extends ActivityWith8bigMenu {
 
     private WebView mWebView;
 

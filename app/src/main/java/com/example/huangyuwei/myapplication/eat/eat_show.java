@@ -8,9 +8,10 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
 import com.example.huangyuwei.myapplication.R;
 
-public class eat_show extends AppCompatActivity {
+public class eat_show extends ActivityWith8bigMenu {
     private final String TAG = "eat_show";
     private WebView webView;
 

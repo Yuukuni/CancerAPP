@@ -14,9 +14,10 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
 import com.example.huangyuwei.myapplication.R;
 
-public class laugh_night_movie extends AppCompatActivity {
+public class laugh_night_movie extends ActivityWith8bigMenu {
 
     private WebView mWebView;
     private FrameLayout video_fullView;// 全屏时视频加载view

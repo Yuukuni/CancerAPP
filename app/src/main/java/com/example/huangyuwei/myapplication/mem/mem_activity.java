@@ -18,6 +18,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
 import com.example.huangyuwei.myapplication.R;
 import com.example.huangyuwei.myapplication.center;
 import com.example.huangyuwei.myapplication.cure.cure_main;
@@ -31,7 +32,7 @@ import java.util.List;
 
 import static com.example.huangyuwei.myapplication.MainActivity.cb;
 
-public class mem_activity extends AppCompatActivity {
+public class mem_activity extends ActivityWith8bigMenu {
 
     private static final int UPDATE_ACTIVITY = 0;
     private static final int SINGLE_PAGE_ACTIVITIES = 10;

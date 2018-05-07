@@ -19,6 +19,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
 import com.example.huangyuwei.myapplication.R;
 
 import org.json.JSONArray;
@@ -38,7 +39,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 
-public class link_economic extends AppCompatActivity {
+public class link_economic extends ActivityWith8bigMenu {
     class PublicCenter{
         String name;
         String eligibility;

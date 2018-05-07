@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +27,7 @@ public class center extends AppCompatActivity {
     private static Context context= null;
     private GlobalVariable globalVariable;
 
+    private Toolbar titleBar;
     ImageButton Btn_ask;
     ImageButton Btn_link;
     ImageButton Btn_mem;

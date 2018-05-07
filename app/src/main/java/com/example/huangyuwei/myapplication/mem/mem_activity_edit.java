@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
 import com.example.huangyuwei.myapplication.R;
 import com.example.huangyuwei.myapplication.database.CancerDatabase;
 import com.example.huangyuwei.myapplication.database.MemActivity;
@@ -31,7 +32,7 @@ import java.util.Locale;
 import static com.example.huangyuwei.myapplication.MainActivity.cb;
 import static com.example.huangyuwei.myapplication.MainActivity.getContext;
 
-public class mem_activity_edit extends AppCompatActivity {
+public class mem_activity_edit extends ActivityWith8bigMenu {
 
     private final int REQUEST_CODE_PLACEPICKER = 1;
 

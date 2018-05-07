@@ -7,9 +7,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
 import com.example.huangyuwei.myapplication.R;
 
-public class mem_move_main extends AppCompatActivity {
+public class mem_move_main extends ActivityWith8bigMenu {
 
     private String TAG="運動";
 

@@ -11,9 +11,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
 import com.example.huangyuwei.myapplication.R;
 
-public class mood_qa extends AppCompatActivity {
+public class mood_qa extends ActivityWith8bigMenu {
 
 
     private RadioGroup radioGroup1,radioGroup2,radioGroup3,radioGroup4,radioGroup5;

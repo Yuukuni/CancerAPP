@@ -34,6 +34,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
 import com.example.huangyuwei.myapplication.R;
 
 import org.json.JSONArray;
@@ -54,7 +55,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class link_foundation extends AppCompatActivity {
+public class link_foundation extends ActivityWith8bigMenu {
 
     class Center{
         String imageurl;

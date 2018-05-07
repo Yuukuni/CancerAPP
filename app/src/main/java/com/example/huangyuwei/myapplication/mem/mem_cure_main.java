@@ -18,11 +18,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
 import com.example.huangyuwei.myapplication.R;
 import com.example.huangyuwei.myapplication.database.ChemCure;
 import com.example.huangyuwei.myapplication.mem.dummy.DummyContent;
 
-public class mem_cure_main extends AppCompatActivity implements mem_cure_fragment_1.OnListFragmentInteractionListener,
+public class mem_cure_main extends ActivityWith8bigMenu implements mem_cure_fragment_1.OnListFragmentInteractionListener,
         mem_cure_fragment_2.OnFragmentInteractionListener, mem_cure_fragment_3.OnFragmentInteractionListener, mem_cure_fragment_4.OnFragmentInteractionListener,
         mem_cure_fragment_1_edit.OnFragmentInteractionListener, mem_cure_fragment_2_edit.OnFragmentInteractionListener, mem_cure_fragment_3_edit.OnFragmentInteractionListener, mem_cure_fragment_4_edit.OnFragmentInteractionListener{
     private final String TAG = "MEM_CURE";

@@ -6,13 +6,14 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
 import com.example.huangyuwei.myapplication.R;
 
 /**
  * Created by huangyuwei on 2018/1/12.
  */
 
-public class laugh_night_mind extends AppCompatActivity {
+public class laugh_night_mind extends ActivityWith8bigMenu {
 
     private WebView mWebView;
 
