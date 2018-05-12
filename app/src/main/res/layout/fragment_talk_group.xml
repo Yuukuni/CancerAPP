@@ -2,13 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.huangyuwei.myapplication.talk.talk_group">
 
     <!-- TODO: Update blank fragment layout -->
-    <Button
+
+    <ImageButton
         android:id="@+id/btn_sleep"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="影片列表" />
+        android:scaleType="fitCenter"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/movie_list"
+        android:background="@null" />
 
 </FrameLayout>

@@ -6,146 +6,155 @@
     android:layout_height="match_parent"
     tools:context="com.example.huangyuwei.myapplication.mem.self_main">
 
-    <Button
-        android:id="@+id/mem_cure_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="治療"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.102" />
-
-    <Button
+    <ImageButton
         android:id="@+id/mem_me_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="我的"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.102" />
+        android:scaleType="fitCenter"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:srcCompat="@drawable/mem_mine"
+        app:layout_constraintLeft_toLeftOf="@id/vertical_one_quarter"
+        app:layout_constraintRight_toRightOf="@id/vertical_one_quarter"
+        app:layout_constraintTop_toTopOf="@id/horizontal_one_quarter"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_one_quarter"
+        android:background="@null" />
 
-    <Button
+    <ImageButton
+        android:id="@+id/mem_cure_button"
+        android:scaleType="fitCenter"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:srcCompat="@drawable/mem_cure"
+        app:layout_constraintLeft_toLeftOf="@id/vertical_two_quarters"
+        app:layout_constraintRight_toRightOf="@id/vertical_two_quarters"
+        app:layout_constraintTop_toTopOf="@id/horizontal_one_quarter"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_one_quarter"
+        android:background="@null" />
+
+    <ImageButton
         android:id="@+id/mem_body_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="身體"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.892"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.102" />
+        android:scaleType="fitCenter"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:srcCompat="@drawable/mem_cure"
+        app:layout_constraintLeft_toLeftOf="@id/vertical_three_quarters"
+        app:layout_constraintRight_toRightOf="@id/vertical_three_quarters"
+        app:layout_constraintTop_toTopOf="@id/horizontal_one_quarter"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_one_quarter"
+        android:background="@null" />
 
-    <Button
+    <ImageButton
         android:id="@+id/mem_food_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="飲食"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.357" />
+        android:scaleType="fitCenter"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:srcCompat="@drawable/mem_food"
+        app:layout_constraintLeft_toLeftOf="@id/vertical_one_quarter"
+        app:layout_constraintRight_toRightOf="@id/vertical_one_quarter"
+        app:layout_constraintTop_toTopOf="@id/horizontal_two_quarters"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_two_quarters"
+        android:background="@null" />
 
-    <Button
+    <ImageButton
         android:id="@+id/mem_mood_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="心情"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.892"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.357" />
+        android:scaleType="fitCenter"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:srcCompat="@drawable/mem_mood"
+        app:layout_constraintLeft_toLeftOf="@id/vertical_two_quarters"
+        app:layout_constraintRight_toRightOf="@id/vertical_two_quarters"
+        app:layout_constraintTop_toTopOf="@id/horizontal_two_quarters"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_two_quarters"
+        android:background="@null" />
 
-    <Button
+    <ImageButton
         android:id="@+id/mem_move_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="運動"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.357" />
+        android:scaleType="fitCenter"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:srcCompat="@drawable/mem_move"
+        app:layout_constraintLeft_toLeftOf="@id/vertical_three_quarters"
+        app:layout_constraintRight_toRightOf="@id/vertical_three_quarters"
+        app:layout_constraintTop_toTopOf="@id/horizontal_two_quarters"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_two_quarters"
+        android:background="@null" />
 
-    <Button
+    <ImageButton
         android:id="@+id/mem_activity_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="活動"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.639" />
+        android:scaleType="fitCenter"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:srcCompat="@drawable/mem_activity"
+        app:layout_constraintLeft_toLeftOf="@id/vertical_one_quarter"
+        app:layout_constraintRight_toRightOf="@id/vertical_one_quarter"
+        app:layout_constraintTop_toTopOf="@id/horizontal_three_quarters"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_three_quarters"
+        android:background="@null" />
 
-    <Button
+    <ImageButton
         android:id="@+id/mem_back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="回診"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.639" />
+        android:scaleType="fitCenter"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:srcCompat="@drawable/mem_back"
+        app:layout_constraintLeft_toLeftOf="@id/vertical_two_quarters"
+        app:layout_constraintRight_toRightOf="@id/vertical_two_quarters"
+        app:layout_constraintTop_toTopOf="@id/horizontal_three_quarters"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_three_quarters"
+        android:background="@null" />
 
-    <Button
+    <ImageButton
         android:id="@+id/mem_setting_button"
+        android:scaleType="fitCenter"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:srcCompat="@drawable/mem_setting"
+        app:layout_constraintLeft_toLeftOf="@id/vertical_three_quarters"
+        app:layout_constraintRight_toRightOf="@id/vertical_three_quarters"
+        app:layout_constraintTop_toTopOf="@id/horizontal_three_quarters"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_three_quarters"
+        android:background="@null" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontal_one_quarter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:text="設定"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.639"
-        app:layout_constraintHorizontal_bias="0.892" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontal_two_quarters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontal_three_quarters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/vertical_one_quarter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/vertical_two_quarters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/vertical_three_quarters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
 
 
 </android.support.constraint.ConstraintLayout>

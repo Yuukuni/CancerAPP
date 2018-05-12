@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
@@ -29,17 +30,17 @@ import com.example.huangyuwei.myapplication.talk.talk;
 import com.example.huangyuwei.myapplication.user_profile;
 
 public class link extends ActivityWith8bigMenu {
-    Button center,economic,foundation,resource,sister;
+    ImageButton center,economic,foundation,resource,sister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_link);
-        center=(Button) findViewById(R.id.center);
-        economic=(Button) findViewById(R.id.economic);
-        foundation=(Button) findViewById(R.id.foundation);
-        resource=(Button) findViewById(R.id.resources);
-        sister=(Button) findViewById(R.id.sister);
+        center=(ImageButton) findViewById(R.id.center);
+        economic=(ImageButton) findViewById(R.id.economic);
+        foundation=(ImageButton) findViewById(R.id.foundation);
+        resource=(ImageButton) findViewById(R.id.resource);
+        sister=(ImageButton) findViewById(R.id.sister);
 
         center.setOnClickListener(new View.OnClickListener() {
             @Override

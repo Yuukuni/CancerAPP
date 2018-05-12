@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
@@ -28,15 +29,15 @@ import com.example.huangyuwei.myapplication.user_profile;
 public class self_main extends ActivityWith8bigMenu {
     private static self_main mInstance = null;
 
-    Button btn_mood;
-    Button btn_food;
-    Button btn_body;
-    Button btn_cure;
-    Button btn_mine;
-    Button btn_move;
-    Button btn_activity;
-    Button btn_back;
-    Button btn_setting;
+    ImageButton btn_mood;
+    ImageButton btn_food;
+    ImageButton btn_body;
+    ImageButton btn_cure;
+    ImageButton btn_mine;
+    ImageButton btn_move;
+    ImageButton btn_activity;
+    ImageButton btn_back;
+    ImageButton btn_setting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class self_main extends ActivityWith8bigMenu {
         setContentView(R.layout.activity_self_main);
         mInstance=this;
 
-        btn_mine = (Button) findViewById(R.id.mem_me_button);
+        btn_mine = (ImageButton) findViewById(R.id.mem_me_button);
         btn_mine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,7 +55,7 @@ public class self_main extends ActivityWith8bigMenu {
             }
         });
 
-        btn_mood= (Button) findViewById(R.id.mem_mood_button);
+        btn_mood= (ImageButton) findViewById(R.id.mem_mood_button);
         btn_mood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +65,7 @@ public class self_main extends ActivityWith8bigMenu {
             }
         });
 
-        btn_food= (Button)findViewById(R.id.mem_food_button);
+        btn_food= (ImageButton)findViewById(R.id.mem_food_button);
         btn_food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,7 +74,7 @@ public class self_main extends ActivityWith8bigMenu {
                 startActivity(intent);
             }
         });
-        btn_cure = (Button)findViewById(R.id.mem_cure_button);
+        btn_cure = (ImageButton)findViewById(R.id.mem_cure_button);
         btn_cure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +84,7 @@ public class self_main extends ActivityWith8bigMenu {
             }
         });
 
-        btn_body = (Button)findViewById(R.id.mem_body_button);
+        btn_body = (ImageButton)findViewById(R.id.mem_body_button);
         btn_body.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,7 +94,7 @@ public class self_main extends ActivityWith8bigMenu {
             }
         });
 
-        btn_move = (Button)findViewById(R.id.mem_move_button);
+        btn_move = (ImageButton)findViewById(R.id.mem_move_button);
         btn_move.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,7 +104,7 @@ public class self_main extends ActivityWith8bigMenu {
             }
         });
 
-        btn_activity = (Button) findViewById(R.id.mem_activity_button);
+        btn_activity = (ImageButton) findViewById(R.id.mem_activity_button);
         btn_activity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,7 +114,7 @@ public class self_main extends ActivityWith8bigMenu {
             }
         });
 
-        btn_back = (Button) findViewById(R.id.mem_back_button);
+        btn_back = (ImageButton) findViewById(R.id.mem_back_button);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,7 +124,7 @@ public class self_main extends ActivityWith8bigMenu {
             }
         });
 
-        btn_setting = (Button) findViewById(R.id.mem_setting_button);
+        btn_setting = (ImageButton) findViewById(R.id.mem_setting_button);
         btn_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

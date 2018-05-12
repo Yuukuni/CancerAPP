@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
@@ -24,15 +25,15 @@ import com.example.huangyuwei.myapplication.talk.talk;
 import com.example.huangyuwei.myapplication.user_profile;
 
 public class move_main extends ActivityWith8bigMenu {
-    Button btn_exercise;
-    Button btn_rehab;
+    ImageButton btn_exercise;
+    ImageButton btn_rehab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_move_main);
 
-        btn_exercise= (Button) findViewById(R.id.btn_exercise);
+        btn_exercise= (ImageButton) findViewById(R.id.btn_exercise);
         btn_exercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +43,7 @@ public class move_main extends ActivityWith8bigMenu {
             }
         });
 
-        btn_rehab= (Button) findViewById(R.id.btn_rehab);
+        btn_rehab= (ImageButton) findViewById(R.id.btn_rehab);
         btn_rehab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
