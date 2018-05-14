@@ -11,17 +11,11 @@
         android:scaleType="fitCenter"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintTop_toTopOf="@+id/first_row"
+        app:layout_constraintBottom_toBottomOf="@+id/first_row"
+        app:layout_constraintLeft_toLeftOf="@+id/first_column"
+        app:layout_constraintRight_toRightOf="@+id/first_column"
         app:srcCompat="@drawable/btn_cure"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.029"
         android:background="@null" />
 
     <ImageButton
@@ -29,17 +23,11 @@
         android:scaleType="fitCenter"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintTop_toTopOf="@+id/first_row"
+        app:layout_constraintBottom_toBottomOf="@+id/first_row"
+        app:layout_constraintLeft_toLeftOf="@+id/second_column"
+        app:layout_constraintRight_toRightOf="@+id/second_column"
         app:srcCompat="@drawable/btn_move"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         android:background="@null" />
 
     <ImageButton
@@ -48,88 +36,10 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         app:srcCompat="@drawable/btn_eat"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.1"
-        app:layout_constraintHorizontal_bias="0.971"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@null" />
-
-    <ImageButton
-        android:id="@+id/Btn_talk"
-        android:scaleType="fitCenter"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/btn_talk"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.86"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.029"
-        android:background="@null" />
-
-    <ImageButton
-        android:id="@+id/Btn_ask"
-        android:scaleType="fitCenter"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/btn_ask"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.029"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintVertical_bias="0.48"
-        android:background="@null" />
-
-    <ImageButton
-        android:id="@+id/Btn_mem"
-        android:scaleType="fitCenter"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="76dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.971"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48"
-        app:srcCompat="@drawable/btn_mem"
-        android:background="@null" />
-
-    <ImageButton
-        android:id="@+id/Btn_link"
-        android:scaleType="fitCenter"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/btn_link"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.48"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/first_row"
+        app:layout_constraintBottom_toBottomOf="@+id/first_row"
+        app:layout_constraintLeft_toLeftOf="@+id/third_column"
+        app:layout_constraintRight_toRightOf="@+id/third_column"
         android:background="@null" />
 
     <ImageButton
@@ -138,15 +48,58 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         app:srcCompat="@drawable/btn_laugh"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.86"
+        app:layout_constraintTop_toTopOf="@+id/second_row"
+        app:layout_constraintBottom_toBottomOf="@+id/second_row"
+        app:layout_constraintLeft_toLeftOf="@+id/first_column"
+        app:layout_constraintRight_toRightOf="@+id/first_column"
+        android:background="@null" />
+
+    <ImageButton
+        android:id="@+id/Btn_mem"
+        android:scaleType="fitCenter"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/btn_mem"
+        app:layout_constraintTop_toTopOf="@+id/second_row"
+        app:layout_constraintBottom_toBottomOf="@+id/second_row"
+        app:layout_constraintLeft_toLeftOf="@+id/second_column"
+        app:layout_constraintRight_toRightOf="@+id/second_column"
+        android:background="@null" />
+
+    <ImageButton
+        android:id="@+id/Btn_link"
+        android:scaleType="fitCenter"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/btn_link"
+        app:layout_constraintTop_toTopOf="@+id/second_row"
+        app:layout_constraintBottom_toBottomOf="@+id/second_row"
+        app:layout_constraintLeft_toLeftOf="@+id/third_column"
+        app:layout_constraintRight_toRightOf="@+id/third_column"
+        android:background="@null" />
+
+    <ImageButton
+        android:id="@+id/Btn_talk"
+        android:scaleType="fitCenter"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/btn_talk"
+        app:layout_constraintTop_toTopOf="@+id/third_row"
+        app:layout_constraintBottom_toBottomOf="@+id/third_row"
+        app:layout_constraintLeft_toLeftOf="@+id/first_column"
+        app:layout_constraintRight_toRightOf="@+id/first_column"
+        android:background="@null" />
+
+    <ImageButton
+        android:id="@+id/Btn_ask"
+        android:scaleType="fitCenter"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/btn_ask"
+        app:layout_constraintTop_toTopOf="@+id/third_row"
+        app:layout_constraintBottom_toBottomOf="@+id/third_row"
+        app:layout_constraintLeft_toLeftOf="@+id/second_column"
+        app:layout_constraintRight_toRightOf="@+id/second_column"
         android:background="@null" />
 
     <TextView
@@ -228,5 +181,47 @@
         app:layout_constraintLeft_toLeftOf="@id/Btn_link"
         app:layout_constraintRight_toRightOf="@id/Btn_link"
         />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/first_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.195" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/second_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.485" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/third_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.775" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/first_column"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.175" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/second_column"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/third_column"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.825" />
 
 </android.support.constraint.ConstraintLayout>
