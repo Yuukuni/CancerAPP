@@ -106,6 +106,17 @@
                 android:layout_height="wrap_content"
                 android:text="新增"></Button>
 
+            <TextView
+                android:id="@+id/tmp_over"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addTmpDay"
+                android:padding="5dp"
+                android:text="※體溫高於38度，建議到急診評估處理!!"
+                android:visibility="invisible"
+                android:textColor="@color/red"
+                android:textAlignment="center" />
+
         </LinearLayout>
     </ScrollView>
 

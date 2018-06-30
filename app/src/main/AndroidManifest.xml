@@ -24,6 +24,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -45,10 +46,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".laugh.laugh_night_movie"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".talk.talk_group_movie"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -110,7 +107,12 @@
 
         <activity android:name=".mem.mem_back" />
         <activity android:name=".mem.mem_setting" />
-        <activity android:name=".ActivityWith8bigMenu"></activity>
+        <activity android:name=".ActivityWith8bigMenu" />
+        <activity android:name=".mem.mem_mood" />
+        <activity android:name=".mem.mem_mood_test" />
+        <activity android:name=".mem.mem_mood_result" />
+        <activity android:name=".talk.talk_expert_movie" />
+        <activity android:name=".mem.mem_mine_edit"></activity>
     </application>
 
 </manifest>

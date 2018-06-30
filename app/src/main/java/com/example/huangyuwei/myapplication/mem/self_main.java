@@ -60,7 +60,7 @@ public class self_main extends ActivityWith8bigMenu {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(self_main.this  , mem_mood_main.class);
+                intent.setClass(self_main.this  , mem_mood.class);
                 startActivity(intent);
             }
         });

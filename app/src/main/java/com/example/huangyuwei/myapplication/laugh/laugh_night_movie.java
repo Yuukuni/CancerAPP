@@ -17,7 +17,7 @@ import android.widget.FrameLayout;
 import com.example.huangyuwei.myapplication.ActivityWith8bigMenu;
 import com.example.huangyuwei.myapplication.R;
 
-public class laugh_night_movie extends ActivityWith8bigMenu {
+public class laugh_night_movie extends AppCompatActivity {
 
     private WebView mWebView;
     private FrameLayout video_fullView;// 全屏时视频加载view
@@ -58,7 +58,7 @@ public class laugh_night_movie extends ActivityWith8bigMenu {
         // 設定轉址的網頁還是由WebView開啟，不要用外部的瀏覽器。
         mWebView.setWebViewClient(new WebViewClient());
 
-        mWebView.loadUrl("https://www.youtube.com/watch?v=icEygCcCEho&index=1&list=PLCcDqyTvTbXCPUtgDg6ESdu_0CmF1d1mH");
+        mWebView.loadUrl("https://www.youtube.com/watch?v=CkocbsNxfVs&list=PLcYwYvFNfjqb0B9P2DlBtG4_yUt3LTgSd&index=1");
 
     }
 

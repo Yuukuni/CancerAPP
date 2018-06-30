@@ -59,7 +59,7 @@ public class move_rehab extends AppCompatActivity {
         // 設定轉址的網頁還是由WebView開啟，不要用外部的瀏覽器。
         mWebView.setWebViewClient(new WebViewClient());
 
-        mWebView.loadUrl("https://www.youtube.com/watch?v=BP_IosG3KCI&list=PLCcDqyTvTbXCRTXZFJQTgLnN2TjbD1oiH&index=1");
+        mWebView.loadUrl("https://www.youtube.com/watch?v=Zwkd4kKkX9Q&index=1&list=PLcYwYvFNfjqY9h9StS_A2sRNB_1BAtvMT");
 
     }
 

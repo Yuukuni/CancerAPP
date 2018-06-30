@@ -18,10 +18,9 @@
             <!--Put form controls here-->
 
             <Button
-                android:id="@+id/add_c_b"
+                android:id="@+id/addFoodDay"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:onClick="sendFeedback"
                 android:text="新增"></Button>
 
             <TableLayout
@@ -70,7 +69,7 @@
 
                         <TextView
                             android:id="@+id/c_b_cure"
-                            android:layout_width="130dp"
+                            android:layout_width="150dp"
                             android:layout_height="30dp"
                             android:layout_span="2"
                             android:background="@drawable/top_shape"
@@ -83,7 +82,7 @@
 
                         <TextView
                             android:id="@+id/c_b_start"
-                            android:layout_width="125dp"
+                            android:layout_width="115dp"
                             android:layout_height="30dp"
                             android:layout_alignParentTop="true"
                             android:layout_toEndOf="@+id/c_b_cure"
@@ -98,7 +97,7 @@
 
                         <TextView
                             android:id="@+id/c_b_end"
-                            android:layout_width="120dp"
+                            android:layout_width="110dp"
                             android:layout_height="30dp"
                             android:layout_alignParentTop="true"
                             android:layout_toEndOf="@+id/c_b_start"
@@ -111,15 +110,10 @@
                             android:text="結束日期"
                             android:textAlignment="center" />
 
-
                     </RelativeLayout>
                 </TableRow>
-
-
             </TableLayout>
-
         </LinearLayout>
     </ScrollView>
-
 </FrameLayout>
 

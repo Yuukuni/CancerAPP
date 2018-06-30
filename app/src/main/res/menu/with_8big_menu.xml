@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/eightBig"
-        android:title="回八大功能" />
+        android:title="回到主選單" />
     <item
         android:id="@+id/cure"
         android:title="治吧" />

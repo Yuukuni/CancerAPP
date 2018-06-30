@@ -7,85 +7,225 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <android.support.constraint.ConstraintLayout
+    <ScrollView
+        android:id="@+id/ScrollView01"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
 
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:text="日期 : "
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="52dp"
-            android:text="處方 : "
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            <android.support.constraint.Guideline
+                android:id="@+id/top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.08"/>
 
-        <CheckBox
-            android:id="@+id/checkBox1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:text="Cyclophosphamide(癌得星) "
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+            <android.support.constraint.Guideline
+                android:id="@+id/left"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.08"/>
 
-        <CheckBox
-            android:id="@+id/checkBox2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="36dp"
-            android:text="Epirubicin  (二代小紅莓)"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkBox1" />
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="日期 : "
+                android:textSize="20sp"
+                app:layout_constraintTop_toTopOf="@+id/top"
+                app:layout_constraintLeft_toLeftOf="@+id/left"/>
 
-        <CheckBox
-            android:id="@+id/checkBox3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="36dp"
-            android:text="Taxotere (歐洲紫杉醇)"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+            <EditText
+                android:id="@+id/dateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textView11"
+                app:layout_constraintLeft_toRightOf="@+id/textView11"/>
 
-        <CheckBox
-            android:id="@+id/checkBox4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="36dp"
-            android:text="Cisplatin (白金)"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkBox3" />
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="處方 : "
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/textView11"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="30dp"/>
 
-        <EditText
-            android:id="@+id/dateText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="32dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintStart_toEndOf="@+id/textView11"
-            app:layout_constraintTop_toTopOf="parent" />
-    </android.support.constraint.ConstraintLayout>
+            <CheckBox
+                android:id="@+id/checkBox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paclitaxel (太平洋紫杉醇) "
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/textView12"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Docetaxel (歐洲紫杉醇) "
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox1"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nab-paclitaxel (太平洋紫杉醇) (奈米微粒) "
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox2"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Doxorubicin (小紅莓) "
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox3"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Epirubicin (二代小紅莓) "
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox4"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lipo-Dox (微脂體小紅莓) "
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox5"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cisplatin (順鉑) (白金) "
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox6"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Carboplatin (卡鉑) "
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox7"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cyclophosphamide (癌得星) "
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox8"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Navelbine (溫諾平) "
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox9"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eribulin (賀樂維) "
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox10"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gemzar (健擇) "
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox11"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Methotrexate(MTX) (滅可善) "
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox12"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fluorouracil(5-FU) (有利癌) "
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox13"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Xeloda (截瘤達) (口服) "
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox14"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBox16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UFUR (友復) (口服) "
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox15"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox16"/>
+            
+        </android.support.constraint.ConstraintLayout>
+        
+    </ScrollView>
+    
 </FrameLayout>

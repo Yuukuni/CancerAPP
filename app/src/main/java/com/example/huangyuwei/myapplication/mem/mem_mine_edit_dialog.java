@@ -10,10 +10,20 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 
 import com.example.huangyuwei.myapplication.R;
 import com.example.huangyuwei.myapplication.UserData;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import static android.content.ContentValues.TAG;
 
@@ -22,6 +32,26 @@ import static android.content.ContentValues.TAG;
  */
 
 public class mem_mine_edit_dialog extends Dialog {
+    private static final String[] CELL_TYPE = {
+            "浸潤性腺管癌",
+            "乳腺管原位癌",
+            "浸潤性小葉癌",
+            "乳小葉原位癌",
+            "其他"
+    };
+
+    private static final String[] NEG_POS = {
+            "陰性",
+            "陽性",
+    };
+
+    private static final String[] HER_2 = {
+            "陰性",
+            "陽性 1+",
+            "陽性 2+",
+            "陽性 3+"
+    };
+
     private Context context;
     private Button btn_confirm;
     private mem_mine instance;
@@ -30,11 +60,25 @@ public class mem_mine_edit_dialog extends Dialog {
     private mem_mine_edit_dialog.onNoOnclickListener noOnclickListener;//取消按钮被点击了的监听器
     private mem_mine_edit_dialog.onYesOnclickListener yesOnclickListener;//确定按钮被点击了的监听器
 
-    private EditText edt_year, edt_height, edt_menstruation, edt_surgery, edt_celltypem, edt_hermonetype, edt_her2, edt_fish;
-    private CheckBox cb_chemical, cb_radio, cb_biaoba, cb_hermone;
+    int surgery_type_amount = 6;
+    int cell_type_amount = 5;
+    int neg_pos_amount = 2;
+    int her_2_amount = 4;
+    int my_cure_amount = 4;
 
-    private String year, height, menstruation, surgery, celltype, hermonetype, her2, fish;
-    boolean chemical, radio, biaoba, hermone;
+    private DatePicker dp_birth, dp_surgery_date;
+    private EditText edt_height;
+    private RadioGroup rg_menstruation;
+    private CheckBox[] cb_surgery_type;
+    private Spinner sp_cell_type, sp_hermone_er, sp_hermone_pr, sp_her_2, sp_fish;
+    private CheckBox[] cb_my_cure;
+
+    private boolean surgeryType1, surgeryType2, surgeryType3, surgeryType4, surgeryType5, surgeryType6;
+    private boolean chemical, radio, biaoba, hermone;
+    RadioButton menstruation_select;
+    private String birth, height, menstruation, surgery_date, surgery_type, cell_type, hermone_er, hermone_pr, her_2, fish, my_cure;
+
+    private SimpleDateFormat dateFormat;
 
     public mem_mine_edit_dialog(@NonNull Context context, mem_mine instance) {
         super(context);
@@ -47,6 +91,143 @@ public class mem_mine_edit_dialog extends Dialog {
         setContentView(R.layout.dialog_mem_mine_edit);
         context = getContext();
         init();
+        initData();
+        btnConfirmSetting();
+    }
+
+    private void init(){
+        dp_birth = (DatePicker) findViewById(R.id.birth);
+        edt_height = (EditText) findViewById(R.id.edt_height);
+        rg_menstruation = (RadioGroup) findViewById(R.id.menstruation);
+        dp_surgery_date = (DatePicker) findViewById(R.id.surgery_date);
+        cb_surgery_type = new CheckBox[surgery_type_amount];
+        cb_surgery_type[0] = (CheckBox) findViewById(R.id.cb_surgery_type_1);
+        cb_surgery_type[1] = (CheckBox) findViewById(R.id.cb_surgery_type_2);
+        cb_surgery_type[2] = (CheckBox) findViewById(R.id.cb_surgery_type_3);
+        cb_surgery_type[3] = (CheckBox) findViewById(R.id.cb_surgery_type_4);
+        cb_surgery_type[4] = (CheckBox) findViewById(R.id.cb_surgery_type_5);
+        cb_surgery_type[5] = (CheckBox) findViewById(R.id.cb_surgery_type_6);
+        sp_cell_type = (Spinner) findViewById(R.id.cell_type);
+        sp_hermone_er = (Spinner) findViewById(R.id.hermone_er);
+        sp_hermone_pr = (Spinner) findViewById(R.id.hermone_pr);
+        sp_her_2 = (Spinner) findViewById(R.id.her_2);
+        sp_fish = (Spinner) findViewById(R.id.fish);
+        cb_my_cure = new CheckBox[my_cure_amount];
+        cb_my_cure[0] = (CheckBox)findViewById(R.id.cb_chemical);
+        cb_my_cure[1] = (CheckBox)findViewById(R.id.cb_radio);
+        cb_my_cure[2] = (CheckBox)findViewById(R.id.cb_biaoba);
+        cb_my_cure[3] = (CheckBox)findViewById(R.id.cb_hermone);
+    }
+
+    void initData() {
+        SharedPreferences sharedPreferences = UserData.getSharedPreferences(context);
+
+        Calendar now = Calendar.getInstance();
+        dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.TAIWAN);
+
+        birth = sharedPreferences.getString("BIRTH", "");
+        if(birth.equals("")) {
+            dp_birth.updateDate(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH));
+        }
+        else {
+            Date date = Calendar.getInstance().getTime();
+            try {
+                date = dateFormat.parse(birth);
+            } catch (ParseException e){
+                e.getErrorOffset();
+            }
+            Calendar setBirth = Calendar.getInstance();
+            setBirth.setTime(date);
+            dp_birth.updateDate(setBirth.get(Calendar.YEAR), setBirth.get(Calendar.MONTH), setBirth.get(Calendar.DAY_OF_MONTH));
+        }
+
+        height = sharedPreferences.getString("HEIGHT", "");
+        edt_height.setText(height);
+
+        menstruation = sharedPreferences.getString("MENSTRUATION", "");
+        if(menstruation.equals("是") || menstruation.equals("")) {
+            RadioButton yes = (RadioButton)findViewById(R.id.yes);
+            yes.setChecked(true);
+        }
+        else {
+            RadioButton no = (RadioButton)findViewById(R.id.no);
+            no.setChecked(true);
+        }
+
+        surgery_date = sharedPreferences.getString("SURGERY_DATE", "");
+        if(surgery_date.equals("")) {
+            dp_surgery_date.updateDate(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH));
+        }
+        else {
+            Date date = Calendar.getInstance().getTime();
+            try {
+                date = dateFormat.parse(surgery_date);
+            } catch (ParseException e){
+                e.getErrorOffset();
+            }
+            Calendar setSurgeryDate = Calendar.getInstance();
+            setSurgeryDate.setTime(date);
+            dp_surgery_date.updateDate(setSurgeryDate.get(Calendar.YEAR), setSurgeryDate.get(Calendar.MONTH), setSurgeryDate.get(Calendar.DAY_OF_MONTH));
+        }
+
+        surgery_type = sharedPreferences.getString("SURGERY_TYPE", "");
+        for(int i = 0; i < surgery_type_amount; i++) {
+            if(surgery_type.indexOf(cb_surgery_type[i].getText().toString()) == -1) {
+                cb_surgery_type[i].setChecked(false);
+            }
+            else {
+                cb_surgery_type[i].setChecked(true);
+            }
+        }
+
+        cell_type = sharedPreferences.getString("CELL_TYPE", "");
+        sp_cell_type.setSelection(0);
+        for(int i = 0; i < cell_type_amount; i++) {
+            if(cell_type.equals(CELL_TYPE[i])) {
+                sp_cell_type.setSelection(i);
+                break;
+            }
+        }
+
+        hermone_er = sharedPreferences.getString("HERMONE_ER", "");
+        sp_hermone_er.setSelection(0);
+        if(hermone_er == NEG_POS[1]) {
+            sp_hermone_er.setSelection(1);
+        }
+
+        hermone_pr = sharedPreferences.getString("HERMONE_PR", "");
+        sp_hermone_pr.setSelection(0);
+        if(hermone_pr == NEG_POS[1]) {
+            sp_hermone_er.setSelection(1);
+        }
+
+        her_2 = sharedPreferences.getString("HER_2", "");
+        sp_her_2.setSelection(0);
+        for(int i = 0; i < her_2_amount; i++) {
+            if(her_2.equals(HER_2[i])) {
+                sp_her_2.setSelection(i);
+                break;
+            }
+        }
+
+        fish = sharedPreferences.getString("FISH", "");
+        sp_fish.setSelection(0);
+        if(fish == NEG_POS[1]) {
+            sp_fish.setSelection(1);
+        }
+
+        my_cure = sharedPreferences.getString("MY_CURE", "");
+        for(int i = 0; i < my_cure_amount; i++) {
+            if(my_cure.indexOf(cb_my_cure[i].getText().toString()) == -1) {
+                cb_my_cure[i].setChecked(false);
+            }
+            else {
+                cb_my_cure[i].setChecked(true);
+            }
+        }
+    }
+
+    private void btnConfirmSetting() {
         btn_confirm = (Button) findViewById(R.id.btn_confirm_mem_mine);
         btn_confirm.setText(yesStr);
         btn_confirm.setOnClickListener(new View.OnClickListener() {
@@ -54,10 +235,8 @@ public class mem_mine_edit_dialog extends Dialog {
             public void onClick(View v) {
                 if (yesOnclickListener != null) {
                     yesOnclickListener.onYesClick();
-
                     getData();
                     saveToSharedPreference();
-
                     Intent refresh = new Intent(context, mem_mine.class);
                     context.startActivity(refresh);
                     instance.finish();
@@ -65,8 +244,6 @@ public class mem_mine_edit_dialog extends Dialog {
             }
         });
     }
-
-
 
     public void setYesOnclickListener(String str, mem_mine_edit_dialog.onYesOnclickListener onYesOnclickListener) {
         if (str != null) {
@@ -83,54 +260,92 @@ public class mem_mine_edit_dialog extends Dialog {
         public void onNoClick();
     }
 
-    void init(){
-        edt_year = (EditText) findViewById(R.id.edt_year);
-        edt_height = (EditText) findViewById(R.id.edt_height);
-        edt_menstruation = (EditText) findViewById(R.id.edt_menstruation);
-        edt_surgery = (EditText) findViewById(R.id.edt_surgery);
-        edt_celltypem = (EditText) findViewById(R.id.edt_celltype);
-        edt_hermonetype = (EditText) findViewById(R.id.edt_hermone);
-        edt_her2 = (EditText) findViewById(R.id.edt_her2);
-        edt_fish = (EditText) findViewById(R.id.edt_fish);
+    private void getData(){
+        String year, month, date;
+        year = Integer.toString(dp_birth.getYear());
+        if(dp_birth.getMonth() + 1 < 10) {
+            month = "0" + Integer.toString(dp_birth.getMonth() + 1);
+        }
+        else {
+            month = Integer.toString(dp_birth.getMonth() + 1);
+        }
+        if(dp_birth.getDayOfMonth() < 10) {
+            date = "0" + Integer.toString(dp_birth.getDayOfMonth());
+        }
+        else {
+            date = Integer.toString(dp_birth.getDayOfMonth());
+        }
+        birth = year + "-" + month + "-" + date;
 
-        cb_chemical = (CheckBox)findViewById(R.id.cb_chemical);
-        cb_radio = (CheckBox)findViewById(R.id.cb_radio);
-        cb_biaoba = (CheckBox)findViewById(R.id.cb_biaoba);
-        cb_hermone = (CheckBox)findViewById(R.id.cb_hermone);
-    }
-    void getData(){
-        year = edt_year.getText().toString();
         height = edt_height.getText().toString();
-        menstruation = edt_menstruation.getText().toString();
-        surgery = edt_surgery.getText().toString();
-        celltype = edt_celltypem.getText().toString();
-        hermonetype = edt_hermonetype.getText().toString();
-        her2 = edt_her2.getText().toString();
-        fish = edt_fish.getText().toString();
 
-        chemical = cb_chemical.isChecked();
-        radio = cb_radio.isChecked();
-        biaoba = cb_biaoba.isChecked();
-        hermone = cb_hermone.isChecked();
+        menstruation_select = (RadioButton) findViewById(rg_menstruation.getCheckedRadioButtonId());
+        menstruation = menstruation_select.getText().toString();
 
-        Log.i(TAG, "1231:  "+" 1 "+year+" 2 "+height+" 3 "+menstruation+" 4 "+surgery+" 5 "+celltype+" 6 "+hermonetype+" 7 "+her2+" 8 "+fish);
-        Log.i(TAG, "1231: "+" 1 "+chemical+" 2 "+radio+" 3 "+biaoba+" 4 "+hermone);
+        year = Integer.toString(dp_surgery_date.getYear());
+        if(dp_surgery_date.getMonth() + 1 < 10) {
+            month = "0" + Integer.toString(dp_surgery_date.getMonth() + 1);
+        }
+        else {
+            month = Integer.toString(dp_surgery_date.getMonth() + 1);
+        }
+        if(dp_surgery_date.getDayOfMonth() < 10) {
+            date = "0" + Integer.toString(dp_surgery_date.getDayOfMonth());
+        }
+        else {
+            date = Integer.toString(dp_surgery_date.getDayOfMonth());
+        }
+        surgery_date = year + "-" + month + "-" + date;
+
+        boolean firstLine = true;
+        surgery_type = "";
+        for(int i = 0; i < surgery_type_amount; i++) {
+            if(cb_surgery_type[i].isChecked()) {
+                if(firstLine) {
+                    firstLine = false;
+                }
+                else {
+                    surgery_type += "\n";
+                }
+                surgery_type += cb_surgery_type[i].getText().toString();
+            }
+        }
+
+        cell_type = sp_cell_type.getSelectedItem().toString();
+        hermone_er = sp_hermone_er.getSelectedItem().toString();
+        hermone_pr = sp_hermone_pr.getSelectedItem().toString();
+        her_2 = sp_her_2.getSelectedItem().toString();
+        fish = sp_fish.getSelectedItem().toString();
+
+        firstLine = true;
+        my_cure = "";
+        for(int i = 0; i < my_cure_amount; i++) {
+            if(cb_my_cure[i].isChecked()) {
+                if(firstLine) {
+                    firstLine = false;
+                }
+                else {
+                    my_cure += "\n";
+                }
+                my_cure += cb_my_cure[i].getText().toString();
+            }
+        }
     }
-    void saveToSharedPreference(){
+
+    private void saveToSharedPreference(){
         SharedPreferences sharedPreferences = UserData.getSharedPreferences(context);
         sharedPreferences.edit()
-                .putString("YEAR", year)
+                .putString("BIRTH", birth)
                 .putString("HEIGHT", height)
                 .putString("MENSTRUATION", menstruation)
-                .putString("SURGERY", surgery)
-                .putString("CELLTYPE", celltype)
-                .putString("HERMONETYPE", hermonetype)
-                .putString("HER2", her2)
+                .putString("SURGERY_DATE", surgery_date)
+                .putString("SURGERY_TYPE", surgery_type)
+                .putString("CELL_TYPE", cell_type)
+                .putString("HERMONE_ER", hermone_er)
+                .putString("HERMONE_PR", hermone_pr)
+                .putString("HER_2", her_2)
                 .putString("FISH", fish)
-                .putBoolean("CHEMICAL", chemical)
-                .putBoolean("RADIO", radio)
-                .putBoolean("BIAOBA", biaoba)
-                .putBoolean("HERMONE", hermone)
+                .putString("MY_CURE", my_cure)
                 .apply();
     }
 }

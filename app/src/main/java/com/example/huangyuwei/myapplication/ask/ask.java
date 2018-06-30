@@ -27,22 +27,27 @@ import com.example.huangyuwei.myapplication.user_profile;
 
 public class ask extends ActivityWith8bigMenu {
 
+    /*
     SectionsPagerAdapter mSectionsPagerAdapter;
     ViewPager mViewPager;
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ask);
 
+        /*
         mSectionsPagerAdapter = new SectionsPagerAdapter(
                 getSupportFragmentManager());
 
         // 設定 ViewPager 和 Pager Adapter.
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        */
     }
 
+    /*
     private class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
@@ -89,4 +94,5 @@ public class ask extends ActivityWith8bigMenu {
             }
         }
     }
+    */
 }

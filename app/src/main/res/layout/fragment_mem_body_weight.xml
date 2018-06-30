@@ -17,13 +17,11 @@
 
             <!--Put form controls here-->
 
-
             <TableLayout
                 android:id="@+id/weight_daytable"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/row_shape">
-
 
                 <TableRow
                     android:id="@+id/weight_time_row"

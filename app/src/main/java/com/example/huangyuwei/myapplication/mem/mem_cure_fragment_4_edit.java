@@ -40,7 +40,7 @@ public class mem_cure_fragment_4_edit extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment mem_cure_fragment_4_edit.
+     * @return A new instance of fragment mem_cure_fragment_3_edit.
      */
     // TODO: Rename and change types and number of parameters
     public static mem_cure_fragment_4_edit newInstance(String param1, String param2) {

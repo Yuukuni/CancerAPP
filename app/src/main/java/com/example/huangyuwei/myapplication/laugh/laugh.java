@@ -56,16 +56,10 @@ public class laugh extends ActivityWith8bigMenu {
             // 根據目前tab標籤頁的位置，傳回對應的fragment物件
             switch (position) {
                 case 0:
-                    fragment = new laugh_soul();
-                    break;
-                case 1:
-                    fragment = new laugh_music();
-                    break;
-                case 2:
                     fragment = new laugh_night();
                     break;
 
-                case 3:
+                case 1:
                     fragment = new laugh_fashion();
                     break;
             }
@@ -75,20 +69,16 @@ public class laugh extends ActivityWith8bigMenu {
 
         @Override
         public int getCount() {
-            return 4;
+            return 2;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "心靈補給";
-                case 1:
-                    return "音樂饗宴";
-                case 2:
                     return "一夜好眠";
 
-                case 3:
+                case 1:
                     return "時尚自信";
                 default:
                     return null;

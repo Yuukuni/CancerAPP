@@ -30,7 +30,7 @@ import com.example.huangyuwei.myapplication.talk.talk;
 import com.example.huangyuwei.myapplication.user_profile;
 
 public class link extends ActivityWith8bigMenu {
-    ImageButton center,economic,foundation,resource,sister;
+    ImageButton center,economic,foundation,resource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,6 @@ public class link extends ActivityWith8bigMenu {
         economic=(ImageButton) findViewById(R.id.economic);
         foundation=(ImageButton) findViewById(R.id.foundation);
         resource=(ImageButton) findViewById(R.id.resource);
-        sister=(ImageButton) findViewById(R.id.sister);
 
         center.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,17 +62,10 @@ public class link extends ActivityWith8bigMenu {
                 startActivity(intent);
             }
         });
-       resource.setOnClickListener(new View.OnClickListener() {
+        resource.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),link_resource.class);
-                startActivity(intent);
-            }
-        });
-        sister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),link_sister.class);
                 startActivity(intent);
             }
         });

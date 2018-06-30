@@ -59,10 +59,7 @@ public class talk extends ActivityWith8bigMenu {
                     fragment = new  talk_share();
                     break;
                 case 1:
-                    fragment = new talk_sister();
-                    break;
-                case 2:
-                    fragment = new talk_group();
+                    fragment = new talk_expert();
                     break;
 
             }
@@ -72,19 +69,16 @@ public class talk extends ActivityWith8bigMenu {
 
         @Override
         public int getCount() {
-            return 3;
+            return 2;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "經驗分享";
+                    return "病友經驗分享";
                 case 1:
-                    return "姊妹線上聯誼";
-                case 2:
-                    return "支持團體";
-
+                    return "專家演講";
                 default:
                     return null;
             }

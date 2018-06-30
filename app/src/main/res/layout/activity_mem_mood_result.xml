@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.huangyuwei.myapplication.mem.mem_mood_result">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1"/>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05"/>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95"/>
+
+            <TextView
+                android:id="@+id/scoreTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="得分："
+                android:textSize="24sp"
+                app:layout_constraintTop_toTopOf="@id/top"
+                app:layout_constraintLeft_toLeftOf="@+id/left" />
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                app:layout_constraintTop_toTopOf="@id/scoreTitle"
+                app:layout_constraintLeft_toRightOf="@id/scoreTitle"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分"
+                android:textSize="24sp"
+                app:layout_constraintTop_toTopOf="@+id/scoreTitle"
+                app:layout_constraintLeft_toRightOf="@id/score"/>
+
+            <TextView
+                android:id="@+id/resultTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="結果："
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/scoreTitle"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="25dp"/>
+
+            <TextView
+                android:id="@+id/result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                app:layout_constraintTop_toTopOf="@+id/resultTitle"
+                app:layout_constraintLeft_toRightOf="@+id/resultTitle"/>
+
+            <TextView
+                android:id="@+id/advice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@+id/resultTitle"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/diaryTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="心情日記："
+                android:textSize="24sp"
+                app:layout_constraintTop_toBottomOf="@id/advice"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="25dp"/>
+
+            <EditText
+                android:id="@+id/diary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="我想說..."
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/diaryTitle"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="5dp" />
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取消"
+                app:layout_constraintTop_toBottomOf="@+id/diary"
+                app:layout_constraintRight_toRightOf="@+id/right"
+                android:layout_marginTop="40dp"/>
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="儲存"
+                app:layout_constraintTop_toBottomOf="@+id/diary"
+                app:layout_constraintRight_toLeftOf="@+id/cancel"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="\n\n"
+                app:layout_constraintTop_toBottomOf="@id/save"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

@@ -46,20 +46,19 @@ public class mem_body_main extends ActivityWith8bigMenu {
                     fragment = new mem_body_weight();
                     break;
                 case 1:
-                    fragment= new mem_body_weight_test();
-                    break;
-                case 2:
                     fragment = new mem_body_tmp();
                     break;
-                case 3:
+                case 2:
                     fragment = new mem_body_blood();
                     break;
-                case 4:
-                    fragment = new mem_body_arm();
-                    break;
-                case 5:
-                    fragment = new mem_body_symptom();
-                    break;
+                case 3:
+                    fragment = new mem_body_other();
+                //case 3:
+                //    fragment = new mem_body_arm();
+                //    break;
+                //case 4:
+                //   fragment = new mem_body_symptom();
+                //    break;
             }
 
             return fragment;
@@ -67,7 +66,7 @@ public class mem_body_main extends ActivityWith8bigMenu {
 
         @Override
         public int getCount() {
-            return 6;
+            return 4 /*5*/;
         }
 
         @Override
@@ -76,15 +75,15 @@ public class mem_body_main extends ActivityWith8bigMenu {
                 case 0:
                     return "體重";
                 case 1:
-                    return "BMI測量";
-                case 2:
                     return "體溫";
-                case 3:
+                case 2:
                     return "血液";
-                case 4:
-                    return "手臂";
-                case 5:
-                    return "症狀";
+                case 3:
+                    return "其它";
+                //case 3:
+                //    return "手臂";
+                //case 4:
+                //   return "症狀";
 
                 default:
                     return null;

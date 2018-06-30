@@ -1,13 +1,171 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.huangyuwei.myapplication.mem.mem_cure_fragment_4_edit">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <ScrollView
+        android:id="@+id/ScrollView01"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="___4_edit" />
+        android:scrollbars="vertical">
 
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.08"/>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.08"/>
+
+            <TextView
+                android:id="@+id/textViewPrescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="處方"
+                android:textSize="20sp"
+                app:layout_constraintTop_toTopOf="@id/top"
+                app:layout_constraintLeft_toLeftOf="@+id/left"/>
+
+            <CheckBox
+                android:id="@+id/cb1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Femara (復乳納)"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPrescription"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp" />
+
+            <CheckBox
+                android:id="@+id/cb2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tamoxifen (泰莫西芬)"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/cb1"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp" />
+
+            <CheckBox
+                android:id="@+id/cb3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Arimidex (安美達)"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/cb2"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp" />
+
+            <CheckBox
+                android:id="@+id/cb4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aromasin (諾曼癌素)"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/cb3"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp" />
+
+            <CheckBox
+                android:id="@+id/cb5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Farlutal  (福祿多錠)"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/cb4"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp" />
+
+            <CheckBox
+                android:id="@+id/cb6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Megest (麥格斯)"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/cb5"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp" />
+
+            <CheckBox
+                android:id="@+id/cb7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Zoladex (諾雷德)"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/cb6"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/startLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="開始日期"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/cb7"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="25dp"/>
+
+            <EditText
+                android:id="@+id/editTextStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintTop_toBottomOf="@+id/startLabel"
+                app:layout_constraintLeft_toLeftOf="@+id/left" />
+
+            <TextView
+                android:id="@+id/endLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="結束日期"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/editTextStart"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                android:layout_marginTop="14dp"/>
+
+            <EditText
+                android:id="@+id/editTextEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintTop_toBottomOf="@id/endLabel"
+                app:layout_constraintLeft_toLeftOf="@+id/left"/>
+
+            <TextView
+                android:id="@+id/space_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/editTextEnd"/>
+
+            <TextView
+                android:id="@+id/space_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/space_1"/>
+
+            <TextView
+                android:id="@+id/space_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/space_2"/>
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 </FrameLayout>

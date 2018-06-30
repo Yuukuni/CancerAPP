@@ -104,6 +104,17 @@
 
                 android:text="新增"></Button>
 
+            <TextView
+                android:id="@+id/wbc_over"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addBloodDay"
+                android:padding="5dp"
+                android:text="請見「治吧-化療藥物副作用與照護」"
+                android:visibility="invisible"
+                android:textColor="@color/red"
+                android:textAlignment="center" />
+
         </LinearLayout>
     </ScrollView>
 

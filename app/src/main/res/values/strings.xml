@@ -25,4 +25,44 @@
         <item>禮拜日</item>
     </string-array>
 
+    <string-array name="weight_result">
+        <item>體重過輕</item>
+        <item>健康體位</item>
+        <item>體位異常(過重)</item>
+        <item>體位異常(輕度肥胖)</item>
+        <item>體位異常(中度肥胖)</item>
+        <item>體位異常(重度肥胖)</item>
+        <item>未輸入身高！</item>
+    </string-array>
+
+    <string-array name="weight_advice">
+        <item>喔喔！你需要再吃營養些，讓自己重一些！</item>
+        <item>很不錯喔，很標準，請您繼續保持！</item>
+        <item>喔喔！您得控制一下飲食了，請加油！</item>
+        <item>肥胖容易引起疾病，您得要多多注意自己的健康囉！</item>
+        <item>肥胖容易引起疾病，您得要多多注意自己的健康囉！</item>
+        <item>肥胖容易引起疾病，您得要多多注意自己的健康囉！</item>
+        <item>請先至「記吧」->「我的」填寫身高；才能計算BMI喔！</item>
+    </string-array>
+
+    <string-array name="cell_type_list">
+        <item>浸潤性腺管癌</item>
+        <item>乳腺管原位癌</item>
+        <item>浸潤性小葉癌</item>
+        <item>乳小葉原位癌</item>
+        <item>其他</item>
+    </string-array>
+
+    <string-array name="neg_or_pos_list">
+        <item>陰性</item>
+        <item>陽性</item>
+    </string-array>
+
+    <string-array name="her_2_list">
+        <item>陰性</item>
+        <item>陽性 1+</item>
+        <item>陽性 2+</item>
+        <item>陽性 3+</item>
+    </string-array>
+
 </resources>

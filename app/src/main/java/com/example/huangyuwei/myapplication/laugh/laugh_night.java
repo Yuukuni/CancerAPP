@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.huangyuwei.myapplication.R;
 
@@ -15,10 +16,10 @@ import com.example.huangyuwei.myapplication.R;
 public class laugh_night extends Fragment {
 
 
-    Button btn_sleep;
-    Button btn_relax;
-    Button btn_message;
-    Button btn_mind;
+    ImageButton btn_sleep;
+    ImageButton btn_relax;
+    ImageButton btn_message;
+    ImageButton btn_mind;
     public laugh_night() {
         // Required empty public constructor
     }
@@ -36,7 +37,7 @@ public class laugh_night extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
 
-        btn_sleep= (Button)getView().findViewById(R.id.btn_sleep);
+        btn_sleep= (ImageButton)getView().findViewById(R.id.btn_sleep);
         btn_sleep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +47,7 @@ public class laugh_night extends Fragment {
             }
         });
 
-        btn_relax= (Button)getView().findViewById(R.id.btn_relax);
+        btn_relax= (ImageButton)getView().findViewById(R.id.btn_relax);
         btn_relax.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +57,7 @@ public class laugh_night extends Fragment {
             }
         });
 
-        btn_message= (Button)getView().findViewById(R.id.btn_message);
+        btn_message= (ImageButton)getView().findViewById(R.id.btn_message);
         btn_message.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +67,7 @@ public class laugh_night extends Fragment {
             }
         });
 
-        btn_mind= (Button)getView().findViewById(R.id.btn_mind);
+        btn_mind= (ImageButton)getView().findViewById(R.id.btn_mind);
         btn_mind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -4,13 +4,16 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +26,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.huangyuwei.myapplication.R;
+import com.example.huangyuwei.myapplication.UserData;
 import com.example.huangyuwei.myapplication.database.CancerDatabase;
 import com.example.huangyuwei.myapplication.database.WeightTime;
 
@@ -37,9 +41,9 @@ import static com.example.huangyuwei.myapplication.MainActivity.cb;
 
 
 public class mem_body_weight extends Fragment {
+    private Context context;
 
     private EditText fromDateEtxt;
-
 
     private TableLayout weighttable;
     private Button addWeight;
@@ -51,6 +55,8 @@ public class mem_body_weight extends Fragment {
     private SimpleDateFormat datedbFormatter;
 
     private List<WeightTime> weightdays;
+
+    private SharedPreferences sharedPreferences;
 
     public mem_body_weight() {
         // Required empty public constructor
@@ -69,6 +75,7 @@ public class mem_body_weight extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 
         super.onActivityCreated(savedInstanceState);
+        context = getContext();
 
         dateFormatter = new SimpleDateFormat("MM-dd-yyyy", Locale.TAIWAN);
         datedbFormatter = new SimpleDateFormat("yyyyMMdd");
@@ -84,19 +91,76 @@ public class mem_body_weight extends Fragment {
         addWeight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sharedPreferences = UserData.getSharedPreferences(context);
                 LayoutInflater inflater = LayoutInflater.from(getActivity());
                 final View dialoglayout = inflater.inflate(R.layout.weightday_dialog,null);
 
-
                 //Building dialog
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-
 
                 fromDateEtxt = (EditText) dialoglayout.findViewById(R.id.EditTextDate);
                 fromDateEtxt.setInputType(InputType.TYPE_NULL);
                 fromDateEtxt.requestFocus();
                 setDateField();
                 fromDateEtxt.setText(dateFormatter.format(Calendar.getInstance().getTime()));
+
+                final EditText weightkg = (EditText) dialoglayout.findViewById(R.id.EditTextKg);
+                final TextView weightbmi = (TextView) dialoglayout.findViewById(R.id.TextViewBmi);
+                final TextView weightresult = (TextView) dialoglayout.findViewById(R.id.TextViewResult);
+                final TextView weightadvice = (TextView) dialoglayout.findViewById(R.id.TextViewAdvice);
+                final double height = Double.parseDouble(sharedPreferences.getString("HEIGHT", "0"));
+                final String[] weightResultText = getResources().getStringArray(R.array.weight_result);
+                final String[] weightAdviceText = getResources().getStringArray(R.array.weight_advice);
+
+                weightkg.addTextChangedListener(new TextWatcher() {
+
+                    public void afterTextChanged(Editable s) {
+                    }
+
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                    }
+
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        if(s.length() != 0) {
+                            int state;
+
+                            if(height == 0) {
+                                state = 6;
+                            }
+                            else {
+                                double kg = Double.parseDouble(s.toString());
+                                double bmi = kg / Math.pow(height/100, 2);
+                                bmi = Math.round(bmi * 100) / 100;
+                                weightbmi.setText(Double.toString(bmi));
+
+                                if(bmi < 18.5) {
+                                    state = 0;
+                                }
+                                else if(bmi < 24) {
+                                    state = 1;
+                                }
+                                else if(bmi < 27) {
+                                    state = 2;
+                                }
+                                else if(bmi < 30) {
+                                    state = 3;
+                                }
+                                else if(bmi < 35) {
+                                    state = 4;
+                                }
+                                else {
+                                    state = 5;
+                                }
+
+                            }
+
+                            String weightResult = weightResultText[state];
+                            String weightAdvice = weightAdviceText[state];
+                            weightresult.setText(weightResult);
+                            weightadvice.setText(weightAdvice);
+                        }
+                    }
+                });
 
                 builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
                     @Override
@@ -112,23 +176,22 @@ public class mem_body_weight extends Fragment {
 
                         }
 
-                        String dateindb=datedbFormatter.format(datedb);
-
-                        final EditText weightkg = (EditText) dialoglayout.findViewById(R.id.EditTextKg);
+                        String dateindb = datedbFormatter.format(datedb);
                         String kg = weightkg.getText().toString();
-
-                        final EditText weightbmi = (EditText) dialoglayout.findViewById(R.id.EditTextBmi);;
                         String bmi = weightbmi.getText().toString();
-
-                        final EditText weightresult = (EditText) dialoglayout.findViewById(R.id.EditTextResult);;
                         String result = weightresult.getText().toString();
+                        String advice = weightadvice.getText().toString();
+
+                        if(bmi == "") {
+                            bmi = "0";
+                        }
 
                         WeightTime wtime = new WeightTime();
-
                         wtime.date_id=Integer.parseInt(dateindb);
                         wtime.kg=Double.parseDouble(kg);
                         wtime.bmi=Double.parseDouble(bmi);
                         wtime.result=result;
+                        wtime.advice=advice;
                         Log.d("TAG",dateindb+" "+kg+" "+bmi+" "+result);
                         /*/add
                         addMoodTime(cb, mtime);
@@ -148,6 +211,7 @@ public class mem_body_weight extends Fragment {
                             weightkg.setText("");
                             weightbmi.setText("");
                             weightresult.setText("");
+                            weightadvice.setText("");
                             dialog.dismiss();
                         }
                         else{
@@ -184,7 +248,8 @@ public class mem_body_weight extends Fragment {
         final Integer date = weightdata.date_id;
         String kg = weightdata.kg.toString();
         String bmi = weightdata.bmi.toString();
-        String result=weightdata.result;
+        String result = weightdata.result;
+        String advice = weightdata.advice;
         LayoutInflater inflater = getActivity().getLayoutInflater();
         TableRow tr = (TableRow)inflater.inflate(R.layout.table_row_4, tl, false);
 
@@ -211,10 +276,11 @@ public class mem_body_weight extends Fragment {
         birth.setText(result);
 
         final int dtime= date;
-        final String s = "確定刪除"+date+"的心情嗎？";
+        final String s = "確定刪除"+date+"的體重嗎？";
         tr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sharedPreferences = UserData.getSharedPreferences(context);
                 LayoutInflater inflater = LayoutInflater.from(getActivity());
                 final View dialoglayout = inflater.inflate(R.layout.weightday_dialog,null);
 //layout_root should be the name of the "top-level" layout node in the dialog_layout.xml file.
@@ -226,15 +292,76 @@ public class mem_body_weight extends Fragment {
                 fromDateEtxt.setInputType(InputType.TYPE_NULL);
                 fromDateEtxt.requestFocus();
                 setDateField();
-                //Calendar cl=Calendar.getInstance();
-                //cl.set(cl.get(Calendar.YEAR), cl.get(Calendar.MONTH), cl.get(Calendar.DAY_OF_MONTH));
-                fromDateEtxt.setText(String.valueOf(date));
-                EditText oldkg = (EditText) dialoglayout.findViewById(R.id.EditTextKg);
-                EditText oldbmi = (EditText) dialoglayout.findViewById(R.id.EditTextBmi);
-                EditText oldresult = (EditText) dialoglayout.findViewById(R.id.EditTextResult);
+                String tempString = Integer.toString(weightdata.date_id);
+                Date temp = Calendar.getInstance().getTime();
+                try {
+                    temp = datedbFormatter.parse(tempString);
+                } catch (ParseException e) {
+                    e.getErrorOffset();
+                }
+                fromDateEtxt.setText(dateFormatter.format(temp));
+
+                final EditText oldkg = (EditText) dialoglayout.findViewById(R.id.EditTextKg);
+                final TextView oldbmi = (TextView) dialoglayout.findViewById(R.id.TextViewBmi);
+                final TextView oldresult = (TextView) dialoglayout.findViewById(R.id.TextViewResult);
+                final TextView oldadvice = (TextView) dialoglayout.findViewById(R.id.TextViewAdvice);
                 oldkg.setText(String.valueOf(weightdata.kg));
                 oldbmi.setText(String.valueOf(weightdata.bmi));
                 oldresult.setText(weightdata.result);
+                oldadvice.setText(weightdata.advice);
+
+                final double height = Double.parseDouble(sharedPreferences.getString("HEIGHT", "0"));
+                final String[] weightResultText = getResources().getStringArray(R.array.weight_result);
+                final String[] weightAdviceText = getResources().getStringArray(R.array.weight_advice);
+                oldkg.addTextChangedListener(new TextWatcher() {
+
+                    public void afterTextChanged(Editable s) {
+                    }
+
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                    }
+
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        if(s.length() != 0) {
+                            int state;
+
+                            if(height == 0) {
+                                state = 6;
+                            }
+                            else {
+                                double kg = Double.parseDouble(s.toString());
+                                double bmi = kg / Math.pow(height/100, 2);
+                                bmi = Math.round(bmi * 100) / 100;
+                                oldbmi.setText(Double.toString(bmi));
+
+                                if(bmi < 18.5) {
+                                    state = 0;
+                                }
+                                else if(bmi < 24) {
+                                    state = 1;
+                                }
+                                else if(bmi < 27) {
+                                    state = 2;
+                                }
+                                else if(bmi < 30) {
+                                    state = 3;
+                                }
+                                else if(bmi < 35) {
+                                    state = 4;
+                                }
+                                else {
+                                    state = 5;
+                                }
+
+                            }
+
+                            String weightResult = weightResultText[state];
+                            String weightAdvice = weightAdviceText[state];
+                            oldresult.setText(weightResult);
+                            oldadvice.setText(weightAdvice);
+                        }
+                    }
+                });
 
                 builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
                     @Override
@@ -242,39 +369,36 @@ public class mem_body_weight extends Fragment {
 
                         final EditText datetext = (EditText) dialoglayout.findViewById(R.id.EditTextDate);
                         String date = datetext.getText().toString();
-                        //Log.d("TAG",date.toString());
-                        //Date datedb = Calendar.getInstance().getTime(); //initialize
-
-                        /*
+                        Date datedb = Calendar.getInstance().getTime(); //initialize
                         try {
                             datedb = dateFormatter.parse(date);
-                        } catch (ParseException e){
 
+                        } catch (ParseException e) {
+                            e.getErrorOffset();
                         }
 
-                        */
-                        //datedb=dateFormatter.parse(date);
-                        //Log.d("TAG",datedb.toString());
-                        // String dateindb=datedbFormatter.format(datedb);
-
-                        //Log.d("TAG",dateindb.toString());
+                        String dateindb = datedbFormatter.format(datedb);
 
                         final EditText weightkg = (EditText) dialoglayout.findViewById(R.id.EditTextKg);
                         String kg = weightkg.getText().toString();
 
-                        final EditText weightbmi = (EditText) dialoglayout.findViewById(R.id.EditTextBmi);;
+                        final TextView weightbmi = (TextView) dialoglayout.findViewById(R.id.TextViewBmi);
                         String bmi = weightbmi.getText().toString();
 
-                        final EditText weightresult = (EditText) dialoglayout.findViewById(R.id.EditTextResult);;
+                        final TextView weightresult = (TextView) dialoglayout.findViewById(R.id.TextViewResult);
                         String result = weightresult.getText().toString();
 
-                        WeightTime wtime = new WeightTime();
+                        final TextView weightadvice = (TextView) dialoglayout.findViewById(R.id.TextViewAdvice);
+                        String advice = weightadvice.getText().toString();
 
-                        wtime.date_id=Integer.parseInt(date);
+                        Log.d("TAG", "*************dateindb:" + dateindb);
+
+                        WeightTime wtime = new WeightTime();
+                        wtime.date_id=Integer.parseInt(dateindb);
                         wtime.kg=Double.parseDouble(kg);
                         wtime.bmi=Double.parseDouble(bmi);
                         wtime.result=result;
-
+                        wtime.advice=advice;
 
                         //Log.d("TAG",date+" "+mood+" "+diary);
                         /*/update
@@ -284,19 +408,22 @@ public class mem_body_weight extends Fragment {
                         mooddiary.setText("");
 
                         */
+
+                        deleteWeightTime(cb, weightdata);
+                        weightdays = CancerDatabase.getInMemoryDatabase(getContext()).weightTimeDao().getAllWeightTime();
                         boolean unique=true;
                         for(int i=0;i<weightdays.size();i++){
-                            if(weightdays.get(i) != weightdata) {
-                                if (weightdays.get(i).date_id == wtime.date_id )
-                                    unique = false;
+                            if (weightdays.get(i).date_id.equals(wtime.date_id)) {
+                                unique = false;
                             }
                         }
                         if(unique) {
-                            updateWeightTime(cb, wtime);
+                            addWeightTime(cb, wtime);
                             refreshTable();
                             weightkg.setText("");
                             weightbmi.setText("");
                             weightresult.setText("");
+                            weightadvice.setText("");
                         }
                         else{
                             final AlertDialog d = new AlertDialog.Builder(getContext())

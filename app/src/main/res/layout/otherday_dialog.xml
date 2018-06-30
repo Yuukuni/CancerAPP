@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+tools:context="com.example.huangyuwei.myapplication.mem.mem_body_other">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/second_column"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.45"/>
+
+        <EditText
+            android:id="@+id/EditTextTime"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/other_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="其他症狀 : "
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/EditTextTime"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <CheckBox
+            android:id="@+id/tightSkin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/other_name_label"
+            android:text="皮膚緊繃感" />
+        <CheckBox
+            android:id="@+id/tightShoulder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/tightSkin"
+            android:text="肩膀緊繃感" />
+
+        <CheckBox
+            android:id="@+id/daohan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/tightShoulder"
+            android:text="潮紅盜汗" />
+
+        <CheckBox
+            android:id="@+id/secretion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/daohan"
+            android:text="陰道分泌物" />
+
+        <CheckBox
+            android:id="@+id/skinRash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/secretion"
+            android:text="皮膚疹" />
+
+        <CheckBox
+            android:id="@+id/edema"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/skinRash"
+            android:text="下肢水腫" />
+
+        <CheckBox
+            android:id="@+id/hand_footSlow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手腳末端感覺遲鈍"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/other_name_label"
+            app:layout_constraintLeft_toLeftOf="@+id/second_column"/>
+
+        <CheckBox
+            android:id="@+id/tingling"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/hand_footSlow"
+            app:layout_constraintLeft_toLeftOf="@+id/second_column"
+            android:text="患肢部位麻刺痛" />
+
+        <CheckBox
+            android:id="@+id/redness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/tingling"
+            app:layout_constraintLeft_toLeftOf="@+id/second_column"
+            android:text="皮膚發紅脫屑" />
+
+        <CheckBox
+            android:id="@+id/irregularMenstruation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/redness"
+            app:layout_constraintLeft_toLeftOf="@+id/second_column"
+            android:text="月經不規則" />
+
+        <CheckBox
+            android:id="@+id/jointPain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/irregularMenstruation"
+            app:layout_constraintLeft_toLeftOf="@+id/second_column"
+            android:text="肌肉關節酸痛" />
+
+        <CheckBox
+            android:id="@+id/empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/jointPain"
+            app:layout_constraintLeft_toLeftOf="@+id/second_column"
+            android:text="" />
+
+        <EditText
+            android:id="@+id/EditTextCustomize"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@+id/empty"
+            app:layout_constraintTop_toBottomOf="@+id/jointPain"
+            android:inputType="text"></EditText>
+
+        <!--<Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="儲存"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/EditTextCustomize"
+            app:layout_constraintRight_toLeftOf="@id/btn_cancel"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="5dp">
+        </Button>
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/EditTextCustomize"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="30dp" />-->
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>
+
+</FrameLayout>

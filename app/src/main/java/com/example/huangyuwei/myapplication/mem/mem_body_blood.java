@@ -4,9 +4,11 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
@@ -81,6 +83,8 @@ public class mem_body_blood extends Fragment {
             addTableRow(bloodtable, blooddays.get(i));
         }
 
+        final TextView wbc_over_show = (TextView) getView().findViewById(R.id.wbc_over);
+        final Handler handler = new Handler();
         addBlood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,6 +147,11 @@ public class mem_body_blood extends Fragment {
                             bloodHB.setText("");
                             bloodPLT.setText("");
                             dialog.dismiss();
+                            if(Double.parseDouble(WBC) < 3000.0)
+                            {
+                                wbc_over_show.setVisibility(View.VISIBLE);
+                            }
+                            handler.postDelayed(runnable, 8000);
                         }
                         else{
                             final AlertDialog d = new AlertDialog.Builder(getContext())
@@ -157,8 +166,13 @@ public class mem_body_blood extends Fragment {
                             d.show();
                         }
 
-
                     }
+                    Runnable runnable = new Runnable() {
+                        @Override
+                        public void run() {
+                            wbc_over_show.setVisibility(View.INVISIBLE);
+                        }
+                    };
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
@@ -176,9 +190,10 @@ public class mem_body_blood extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void addTableRow(TableLayout tl, final BloodTime blooddata){
         final Integer date = blooddata.date_id;
-        String WBC = blooddata.WBC.toString();
-        String HB = blooddata.HB.toString();
-        String PLT=blooddata.PLT;
+        int intWBC = blooddata.WBC.intValue();
+        String WBC = Integer.toString(intWBC) + "/uL";
+        String HB = blooddata.HB.toString() + "g/dL";
+        String PLT = blooddata.PLT + "K/uL";
         LayoutInflater inflater = getActivity().getLayoutInflater();
         TableRow tr = (TableRow)inflater.inflate(R.layout.table_row_4, tl, false);
 
@@ -189,6 +204,9 @@ public class mem_body_blood extends Fragment {
         // Add the 3rd Column
         TextView Phone = (TextView)tr.findViewById(R.id.Phone);
         Phone.setText(WBC);
+        if(intWBC < 3000) {
+            Phone.setTextColor(Color.RED);
+        }
 
         TextView Address = (TextView)tr.findViewById(R.id.Address);
         Address.setText(HB);
@@ -197,7 +215,9 @@ public class mem_body_blood extends Fragment {
         birth.setText(PLT);
 
         final int dtime= date;
-        final String s = "確定刪除"+date+"的心情嗎？";
+        final String s = "確定刪除"+date+"的血液嗎？";
+        final TextView wbc_over_show = (TextView) getView().findViewById(R.id.wbc_over);
+        final Handler handler = new Handler();
         tr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -212,8 +232,15 @@ public class mem_body_blood extends Fragment {
                 fromDateEtxt.setInputType(InputType.TYPE_NULL);
                 fromDateEtxt.requestFocus();
                 setDateField();
+                String tempString = Integer.toString(blooddata.date_id);
+                Date temp = Calendar.getInstance().getTime();
+                try {
+                    temp = datedbFormatter.parse(tempString);
+                } catch (ParseException e){
+                    e.getErrorOffset();
+                }
+                fromDateEtxt.setText(dateFormatter.format(temp));
 
-                fromDateEtxt.setText(String.valueOf(date));
                 EditText oldWBC = (EditText) dialoglayout.findViewById(R.id.EditTextWBC);
                 EditText oldHB = (EditText) dialoglayout.findViewById(R.id.EditTextHB);
                 EditText oldPLT = (EditText) dialoglayout.findViewById(R.id.EditTextPLT);
@@ -227,6 +254,14 @@ public class mem_body_blood extends Fragment {
 
                         final EditText datetext = (EditText) dialoglayout.findViewById(R.id.EditTextDate);
                         String date = datetext.getText().toString();
+                        Date datedb = Calendar.getInstance().getTime(); //initialize
+                        try {
+                            datedb = dateFormatter.parse(date);
+
+                        } catch (ParseException e) {
+                            e.getErrorOffset();
+                        }
+                        String dateindb = datedbFormatter.format(datedb);
 
                         final EditText bloodWBC = (EditText) dialoglayout.findViewById(R.id.EditTextWBC);
                         String WBC = bloodWBC.getText().toString();
@@ -237,27 +272,34 @@ public class mem_body_blood extends Fragment {
                         final EditText bloodPLT = (EditText) dialoglayout.findViewById(R.id.EditTextPLT);;
                         String PLT = bloodPLT.getText().toString();
 
-                        BloodTime btime = new BloodTime();
+                        Log.d("TAG", "*************dateindb:" + dateindb);
 
-                        btime.date_id=Integer.parseInt(date);
+                        BloodTime btime = new BloodTime();
+                        btime.date_id=Integer.parseInt(dateindb);
                         btime.WBC=Double.parseDouble(WBC);
                         btime.HB=Double.parseDouble(HB);
                         btime.PLT=PLT;
 
-
+                        deleteBloodTime(cb, blooddata);
+                        blooddays = CancerDatabase.getInMemoryDatabase(getContext()).bloodTimeDao().getAllBloodTime();
                         boolean unique=true;
                         for(int i=0;i<blooddays.size();i++){
-                            if(blooddays.get(i) != blooddata) {
-                                if (blooddays.get(i).date_id == btime.date_id )
-                                    unique = false;
+                            if (blooddays.get(i).date_id.equals(btime.date_id)) {
+                                unique = false;
                             }
                         }
                         if(unique) {
-                            updateBloodTime(cb, btime);
+                            addBloodTime(cb, btime);
                             refreshTable();
                             bloodWBC.setText("");
                             bloodHB.setText("");
                             bloodPLT.setText("");
+
+                            if(Double.parseDouble(WBC) < 3000.0)
+                            {
+                                wbc_over_show.setVisibility(View.VISIBLE);
+                            }
+                            handler.postDelayed(runnable, 8000);
                         }
                         else{
                             final AlertDialog d = new AlertDialog.Builder(getContext())
@@ -276,6 +318,13 @@ public class mem_body_blood extends Fragment {
                         dialog.dismiss();
 
                     }
+
+                    Runnable runnable = new Runnable() {
+                        @Override
+                        public void run() {
+                            wbc_over_show.setVisibility(View.INVISIBLE);
+                        }
+                    };
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override

@@ -4,9 +4,11 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
@@ -22,6 +24,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.TimePicker;
+
 
 import com.example.huangyuwei.myapplication.R;
 import com.example.huangyuwei.myapplication.database.CancerDatabase;
@@ -99,7 +102,6 @@ public class mem_body_tmp extends Fragment{
                 LayoutInflater inflater = LayoutInflater.from(getActivity());
                 final View dialoglayout = inflater.inflate(R.layout.tmpday_dialog,null);
 //layout_root should be the name of the "top-level" layout node in the dialog_layout.xml file.
-
                 //Building dialog
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
@@ -108,6 +110,8 @@ public class mem_body_tmp extends Fragment{
                 fromTimeEtxt.requestFocus();
                 setTimeField();
                 fromTimeEtxt.setText(timeFormatter.format(Calendar.getInstance().getTime()));
+                final TextView tmp_over_show = (TextView) getView().findViewById(R.id.tmp_over);
+                final Handler handler = new Handler();
                 builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -158,6 +162,13 @@ public class mem_body_tmp extends Fragment{
                             refreshTable();
                             tmptext.setText("");
                             dialog.dismiss();
+
+                            if(Double.parseDouble(degree) >= 38.0)
+                            {
+                                tmp_over_show.setVisibility(View.VISIBLE);
+                            }
+                            handler.postDelayed(runnable, 8000);
+
                         }
                         else{
                             final AlertDialog d = new AlertDialog.Builder(getContext())
@@ -173,7 +184,14 @@ public class mem_body_tmp extends Fragment{
                         }
 
                     }
+                    Runnable runnable = new Runnable() {
+                        @Override
+                        public void run() {
+                            tmp_over_show.setVisibility(View.INVISIBLE);
+                        }
+                    };
                 });
+
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -200,11 +218,11 @@ public class mem_body_tmp extends Fragment{
         dcal.set(dcal.get(Calendar.YEAR), dcal.get(Calendar.MONTH), dcal.get(Calendar.DAY_OF_MONTH),time/100,time%100);
         Name.setText(timeFormatter.format(dcal.getTime()));
 
-
-
         TextView Phone = (TextView)tr.findViewById(R.id.Phone);
         Phone.setText(degree.toString());
-
+        if(degree > 38) {
+            Phone.setTextColor(Color.RED);
+        }
 
         final int dtime= time;
         final String s = "確定刪除"+dtime/100+":"+ dtime%100+"的溫度嗎？";
@@ -227,7 +245,8 @@ public class mem_body_tmp extends Fragment{
                 fromTimeEtxt.setText(timeFormatter.format(cl.getTime()));
                 EditText olddegreetext = (EditText) dialoglayout.findViewById(R.id.EditTextDegree);
                 olddegreetext.setText(tmpdata.degree.toString());
-
+                final TextView tmp_over_show = (TextView) getView().findViewById(R.id.tmp_over);
+                final Handler handler = new Handler();
                 builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -283,6 +302,12 @@ public class mem_body_tmp extends Fragment{
                             updateTmpTime(cb, ttime);
                             refreshTable();
                             tmptext.setText("");
+
+                            if(Double.parseDouble(degree) >= 38.0)
+                            {
+                                tmp_over_show.setVisibility(View.VISIBLE);
+                            }
+                            handler.postDelayed(runnable, 8000);
                         }
                         else{
                             final AlertDialog d = new AlertDialog.Builder(getContext())
@@ -300,6 +325,12 @@ public class mem_body_tmp extends Fragment{
                         dialog.dismiss();
 
                     }
+                    Runnable runnable = new Runnable() {
+                        @Override
+                        public void run() {
+                            tmp_over_show.setVisibility(View.INVISIBLE);
+                        }
+                    };
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override

@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.huangyuwei.myapplication.mem.mem_mine_edit">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/titleLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.03"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的"
+                android:textSize="35sp"
+                android:textColor="#0066FF"
+                app:layout_constraintLeft_toLeftOf="@+id/titleLeft"/>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.08"/>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.92"/>
+
+            <TextView
+                android:id="@+id/Year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="生日 : "
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                android:layout_marginTop="30dp"/>
+
+            <TextView
+                android:id="@+id/Height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="身高 : "
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/birth"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/Menstruation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="是否停經 : "
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/Height"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/Surgery_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手術年月 : "
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/Menstruation"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/Surgery_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手術術式 : "
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/surgery_date"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/Cell_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="細胞類型 : "
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/cb_surgery_type_6"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/Hermone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="賀爾蒙受體 : "
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/Cell_type"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/Hermone_ER"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ER"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toRightOf="@+id/Hermone"
+                app:layout_constraintBaseline_toBaselineOf="@id/Hermone"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/Hermone_PR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PR"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="@+id/Hermone_ER"
+                app:layout_constraintTop_toBottomOf="@+id/Hermone_ER"
+                android:layout_marginTop="7dp"/>
+
+            <TextView
+                android:id="@+id/HER-2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HER-2/neu基因表現 : "
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/Hermone_PR"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/FISH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FISH : "
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/HER-2"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/my_cure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的療程 : "
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/FISH"
+                android:layout_marginTop="15dp"/>
+
+            <DatePicker
+                android:id="@+id/birth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:datePickerMode="spinner"
+                android:calendarViewShown="false"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/Year"/>
+
+            <EditText
+                android:id="@+id/edt_height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                app:layout_constraintLeft_toRightOf="@+id/Height"
+                app:layout_constraintBaseline_toBaselineOf="@+id/Height" />
+
+            <RadioGroup
+                android:id="@+id/menstruation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toRightOf="@+id/Menstruation"
+                app:layout_constraintTop_toTopOf="@+id/Menstruation" >
+
+                <RadioButton
+                    android:id="@+id/yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="是" />
+
+                <RadioButton
+                    android:id="@+id/no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="否" />
+
+            </RadioGroup>
+
+            <DatePicker
+                android:id="@+id/surgery_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:datePickerMode="spinner"
+                android:calendarViewShown="false"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/Surgery_date"/>
+
+            <CheckBox
+                android:id="@+id/cb_surgery_type_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="乳房保留手術"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/Surgery_type"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="7dp"/>
+
+            <CheckBox
+                android:id="@+id/cb_surgery_type_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="單純性乳房全切除"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/cb_surgery_type_1"
+                android:layout_marginLeft="10dp"/>
+
+            <CheckBox
+                android:id="@+id/cb_surgery_type_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="改良式根除性乳房切除手術"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/cb_surgery_type_2"
+                android:layout_marginLeft="10dp"/>
+
+            <CheckBox
+                android:id="@+id/cb_surgery_type_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="前哨淋巴結摘取術"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/cb_surgery_type_3"
+                android:layout_marginLeft="10dp"/>
+
+            <CheckBox
+                android:id="@+id/cb_surgery_type_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="腋窩淋巴清除術"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/cb_surgery_type_4"
+                android:layout_marginLeft="10dp"/>
+
+            <CheckBox
+                android:id="@+id/cb_surgery_type_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="重建手術"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/cb_surgery_type_5"
+                android:layout_marginLeft="10dp"/>
+
+            <Spinner
+                android:id="@+id/cell_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog"
+                android:scrollbars="vertical"
+                android:entries="@array/cell_type_list"
+                app:layout_constraintLeft_toRightOf="@+id/Cell_type"
+                app:layout_constraintBaseline_toBaselineOf="@+id/Cell_type"/>
+
+            <Spinner
+                android:id="@+id/hermone_er"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog"
+                android:scrollbars="vertical"
+                android:entries="@array/neg_or_pos_list"
+                app:layout_constraintLeft_toRightOf="@+id/Hermone_ER"
+                app:layout_constraintBaseline_toBaselineOf="@+id/Hermone_ER"/>
+
+            <Spinner
+                android:id="@+id/hermone_pr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog"
+                android:scrollbars="vertical"
+                android:entries="@array/neg_or_pos_list"
+                app:layout_constraintLeft_toRightOf="@+id/Hermone_PR"
+                app:layout_constraintBaseline_toBaselineOf="@+id/Hermone_PR"/>
+
+            <Spinner
+                android:id="@+id/her_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog"
+                android:scrollbars="vertical"
+                android:entries="@array/her_2_list"
+                app:layout_constraintLeft_toRightOf="@+id/HER-2"
+                app:layout_constraintBaseline_toBaselineOf="@+id/HER-2"/>
+
+            <Spinner
+                android:id="@+id/fish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog"
+                android:scrollbars="vertical"
+                android:entries="@array/neg_or_pos_list"
+                app:layout_constraintLeft_toRightOf="@+id/FISH"
+                app:layout_constraintBaseline_toBaselineOf="@+id/FISH"/>
+
+            <CheckBox
+                android:id="@+id/cb_chemical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="化學治療"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/my_cure"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="7dp"/>
+
+            <CheckBox
+                android:id="@+id/cb_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="放射線治療"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/cb_chemical"
+                android:layout_marginLeft="10dp"/>
+
+            <CheckBox
+                android:id="@+id/cb_biaoba"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="標靶"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/cb_radio"
+                android:layout_marginLeft="10dp"/>
+
+            <CheckBox
+                android:id="@+id/cb_hermone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="荷爾蒙治療"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/cb_biaoba"
+                android:layout_marginLeft="10dp"/>
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取消"
+                app:layout_constraintRight_toRightOf="@+id/right"
+                app:layout_constraintTop_toBottomOf="@+id/cb_hermone"
+                android:layout_marginTop="20dp" />
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="儲存"
+                app:layout_constraintRight_toLeftOf="@id/btn_cancel"
+                app:layout_constraintTop_toTopOf="@+id/btn_cancel"
+                android:layout_marginRight="5dp"/>
+
+            <TextView
+                android:id="@+id/space"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="@+id/left"
+                app:layout_constraintTop_toBottomOf="@+id/btn_confirm_mem_mine" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

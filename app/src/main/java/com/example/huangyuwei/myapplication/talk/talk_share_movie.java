@@ -57,7 +57,7 @@ public class talk_share_movie extends AppCompatActivity {
         // 設定轉址的網頁還是由WebView開啟，不要用外部的瀏覽器。
         mWebView.setWebViewClient(new WebViewClient());
 
-        mWebView.loadUrl("https://youtu.be/uWuPVcE0NuQ?list=PL8XfZflYfwK06-0Eg0tMLwBEgDL-mfO25");
+        mWebView.loadUrl("https://www.youtube.com/watch?v=5mgYgqWI9is&list=PLcYwYvFNfjqasAPA7RhV_vweeflVr6nro&index=1");
 
 
     }

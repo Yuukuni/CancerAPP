@@ -12,4 +12,5 @@ public class WeightTime {
     public Double kg;
     public Double bmi;
     public String result;
+    public String advice;
 }

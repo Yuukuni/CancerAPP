@@ -45,6 +45,4 @@ public class talk_share extends Fragment {
 
     }
 
-
-
 }

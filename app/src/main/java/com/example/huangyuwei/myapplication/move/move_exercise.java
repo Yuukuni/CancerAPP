@@ -59,7 +59,7 @@ public class move_exercise extends AppCompatActivity {
         // 設定轉址的網頁還是由WebView開啟，不要用外部的瀏覽器。
         mWebView.setWebViewClient(new WebViewClient());
 
-        mWebView.loadUrl("https://www.youtube.com/playlist?list=PLCcDqyTvTbXCgeYU2ZtgbfRZy6XsdSjxr");
+        mWebView.loadUrl("https://www.youtube.com/watch?v=CLzUTDBKFqY&index=1&list=PLcYwYvFNfjqY17T85PVKFTonogszd_Hha");
 
     }
 
